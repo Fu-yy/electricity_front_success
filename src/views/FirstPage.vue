@@ -100,6 +100,14 @@ export default {
     this.drawChart4();
     this.drawChart5();
     // this.drawChartMap1();
+    var that = this;
+    window.onresize = function() {
+      that.$echarts.init(document.getElementById("echart1")).resize();
+      that.$echarts.init(document.getElementById("echart2")).resize();
+      that.$echarts.init(document.getElementById("echart4")).resize();
+      that.$echarts.init(document.getElementById("echart5")).resize();
+     
+    };
   },
   methods: {
     drawChart1() {
