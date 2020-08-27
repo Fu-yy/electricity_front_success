@@ -82,7 +82,7 @@
 
 <script>
 export default {
-  name: "SecondPage",
+  name: "SixthPage",
   data() {
     return {
       loading: require("./../assets/img/loading.gif"),

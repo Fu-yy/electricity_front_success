@@ -84,7 +84,7 @@
 
 <script>
 export default {
-  name: "firstPage",
+  name: "FirstPage",
   data() {
     return {
       loading: require("./../assets/img/loading.gif"),

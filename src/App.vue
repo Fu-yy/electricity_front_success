@@ -25,30 +25,35 @@
       <div class="firstPageBtn">
         <a href="#">
           <router-link to="/firstPage">1</router-link>
-          </a>
+        </a>
       </div>
       <div class="secondPageBtn">
-        <a href="#" class>
-                    <router-link to="/secondPage">2</router-link>
-
+        <a href="#">
+          <router-link to="/secondPage">2</router-link>
         </a>
       </div>
       <div class="thirdPageBtn">
-        <a href="#">3</a>
+        <a href="#">
+          <router-link to="/thirdPage">3</router-link>
+        </a>
       </div>
       <div class="forthPageBtn">
-        <a href="#">4</a>
+        <a href="#">
+          <router-link to="/forthPage">4</router-link>
+        </a>
       </div>
       <div class="fifthPageBtn">
-        <a href="#">5</a>
+        <a href="#">
+          <router-link to="/fifthPage">5</router-link>
+        </a>
       </div>
       <div class="sixthPageBtn">
-        <a href="#">6</a>
+        <a href="#">
+          <router-link to="/sixthPage">6</router-link>
+        </a>
       </div>
       <h1>需求侧工业用电行为大数据深度分析及优化决策支持</h1>
     </div>
-
-    
 
     <router-view />
   </div>
@@ -117,62 +122,59 @@ export default {
 }
 .firstPageBtn {
   position: absolute;
-    font-size: .5rem;
+  font-size: 0.5rem;
 
   width: 1rem;
   left: 1rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
-    text-align: center;
+  text-align: center;
 
-  top: .3rem;
+  top: 0.3rem;
   line-height: 0.75rem;
 }
 .secondPageBtn {
-    font-size: .5rem;
+  font-size: 0.5rem;
 
   position: absolute;
-  top: .3rem;
+  top: 0.3rem;
   left: 3rem;
   width: 1rem;
 
   line-height: 0.75rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
-    text-align: center;
-
+  text-align: center;
 }
 .thirdPageBtn {
   position: absolute;
-    font-size: .5rem;
+  font-size: 0.5rem;
 
-  top: .3rem;
+  top: 0.3rem;
   left: 5rem;
   width: 1rem;
 
   line-height: 0.75rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
-    text-align: center;
-
+  text-align: center;
 }
 
 .forthPageBtn {
   position: absolute;
-    font-size: .5rem;
+  font-size: 0.5rem;
 
-  top: .3rem;
+  top: 0.3rem;
   right: 5rem;
   width: 1rem;
 
   line-height: 0.75rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
-    text-align: center;
-
+  text-align: center;
 }
 
 .fifthPageBtn {
   position: absolute;
-    font-size: .5rem;
+  font-size: 0.5rem;
 
-  top: .3rem;
+  top: 0.3rem;
   width: 1rem;
 
   width: 1rem;
@@ -180,15 +182,14 @@ export default {
   right: 3rem;
   line-height: 0.75rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
-    text-align: center;
-
+  text-align: center;
 }
 
 .sixthPageBtn {
-  font-size: .5rem;
+  font-size: 0.5rem;
   position: absolute;
   width: 1rem;
-  top: .3rem;
+  top: 0.3rem;
   right: 1rem;
   line-height: 0.75rem;
   border: 1px solid rgba(25, 186, 139, 0.17);

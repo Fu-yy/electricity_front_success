@@ -22,7 +22,7 @@
         </div> -->
       </li>
       <li>
-        <div class="bar" style="margin-bottom:1rem">
+        <div class="bar" style="margin-bottom:.5rem">
           <div class="barbox">
             <ul class="clearfix">
               <li class="counter" style="width:100%;line-height: 2rem;">行业用电量关联性分析</li>
@@ -82,7 +82,7 @@
 
 <script>
 export default {
-  name: "SecondPage",
+  name: "FifthPage",
   data() {
     return {
       loading: require("./../assets/img/loading.gif"),
