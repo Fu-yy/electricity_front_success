@@ -4,14 +4,55 @@
       <li>
         <div class="boxall" style="height: 5.2rem">
           <div class="alltitle">表格</div>
-          <div class="allnav" id="echart1"></div>
+          <div class="allnav tableClass" id="echart1" style>
+            <!-- <table border="1" style="FILTER:   alpha(opacity=40);width:100%;heigh:80%">
+             
+            </table> -->
+            <div style="width:800px">
+                   <div class="table-head">
+     <table>
+         <colgroup>
+             <col style="width: 80px;" />
+             <col />
+         </colgroup>
+         <thead>
+             <tr><th>序号</th><th>内容</th></tr>
+         </thead>
+     </table>
+     </div>
+     <div class="table-body">
+     <table>
+         <colgroup><col style="width: 80px;" /><col /></colgroup>
+         <tbody>
+             <tr><td>1</td><td>我只是用来测试的</td></tr>
+             <tr><td>2</td><td>我只是用来测试的</td></tr>
+             <tr><td>3</td><td>我只是用来测试的</td></tr>
+             <tr><td>4</td><td>我只是用来测试的</td></tr>
+             <tr><td>5</td><td>我只是用来测试的</td></tr>
+             <tr><td>6</td><td>我只是用来测试的</td></tr>
+             <tr><td>7</td><td>我只是用来测试的</td></tr>
+             <tr><td>8</td><td>我只是用来测试的</td></tr>
+             <tr><td>9</td><td>我只是用来测试的</td></tr>
+             <tr><td>10</td><td>我只是用来测试的</td></tr>
+             <tr><td>11</td><td>我只是用来测试的</td></tr>
+             <tr><td>12</td><td>我只是用来测试的</td></tr>
+             <tr><td>13</td><td>我只是用来测试的</td></tr>
+             <tr><td>14</td><td>我只是用来测试的</td></tr>
+             <tr><td>15</td><td>我只是用来测试的</td></tr>
+         </tbody>
+     </table>
+   
+ </div>
+
+            </div>
+          </div>
           <div class="boxfoot"></div>
         </div>
         <!-- <div class="boxall" style="height: 4.2rem">
           <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart2"></div>
           <div class="boxfoot"></div>
-        </div> -->
+        </div>-->
         <!-- <div class="boxall" style="height: 5rem">
           <div style="height:100%; width: 100%;">
             <div class="sy" id="fb1"></div>
@@ -19,7 +60,7 @@
             <div class="sy" id="fb3"></div>
           </div>
           <div class="boxfoot"></div>
-        </div> -->
+        </div>-->
       </li>
       <li>
         <div class="bar" style="margin-bottom:1rem">
@@ -74,7 +115,7 @@
           <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart6">echart6</div>
           <div class="boxfoot"></div>
-        </div> -->
+        </div>-->
       </li>
     </ul>
   </div>
@@ -89,7 +130,25 @@ export default {
       lbx: require("./../assets/img/lbx.png"),
       jt: require("./../assets/img/jt.png"),
       map: require("./../assets/img/map.png"),
-      fontSize: document.documentElement.clientWidth
+      fontSize: document.documentElement.clientWidth,
+      tableData: [
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333
+        }
+      ]
     };
   },
   mounted() {
@@ -100,21 +159,25 @@ export default {
     // this.drawChart4();
     // this.drawChart5();
     // this.drawChartMap1();
-     var that = this;
+    var that = this;
     window.onresize = function() {
       // that.$echarts.init(document.getElementById("echart1")).resize();
       // that.$echarts.init(document.getElementById("echart2")).resize();
       // that.$echarts.init(document.getElementById("echart3")).resize();
       that.$echarts.init(document.getElementById("map_1")).resize();
-     
     };
   },
 
   methods: {
-      drawChartMap1() {
-      let map_1 = this.$echarts.init(
-        document.getElementById("map_1")
-      );
+    handleClick(row) {
+      console.log(row);
+    },
+    addClass({ row, column, rowIndex, columnIndex }) {
+      return "cell-grey";
+    },
+
+    drawChartMap1() {
+      let map_1 = this.$echarts.init(document.getElementById("map_1"));
       var option = {};
       var t = this;
 
@@ -405,8 +468,7 @@ export default {
         ]
       };
       map_1.setOption(option);
-    },
-
+    }
   }
 };
 </script>

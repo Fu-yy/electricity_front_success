@@ -22,34 +22,34 @@
       
     </el-row>-->
     <div class="head">
-      <div class="firstPageBtn">
+      <div class="firstPageBtn pageBtn">
         <a href="#">
-          <router-link to="/firstPage">1</router-link>
+          <router-link to="/firstPage">历史用电量分析</router-link>
         </a>
       </div>
-      <div class="secondPageBtn">
+      <div class="secondPageBtn pageBtn">
         <a href="#">
-          <router-link to="/secondPage">2</router-link>
+          <router-link to="/secondPage">用电关联性分析</router-link>
         </a>
       </div>
-      <div class="thirdPageBtn">
+      <div class="thirdPageBtn pageBtn">
         <a href="#">
-          <router-link to="/thirdPage">3</router-link>
+          <router-link to="/thirdPage">用电趋势预测</router-link>
         </a>
       </div>
-      <div class="forthPageBtn">
+      <div class="forthPageBtn pageBtn">
         <a href="#">
-          <router-link to="/forthPage">4</router-link>
+          <router-link to="/forthPage">峰谷平和行业分时电价</router-link>
         </a>
       </div>
-      <div class="fifthPageBtn">
+      <div class="fifthPageBtn pageBtn">
         <a href="#">
-          <router-link to="/fifthPage">5</router-link>
+          <router-link to="/fifthPage">关联性分析</router-link>
         </a>
       </div>
-      <div class="sixthPageBtn">
+      <div class="sixthPageBtn pageBtn">
         <a href="#">
-          <router-link to="/sixthPage">6</router-link>
+          <router-link to="/sixthPage">需求侧用电量优化</router-link>
         </a>
       </div>
       <h1>需求侧工业用电行为大数据深度分析及优化决策支持</h1>
@@ -120,79 +120,52 @@ export default {
   border: 1px;
   box-shadow: 1px;
 }
-.firstPageBtn {
+.pageBtn {
   position: absolute;
-  font-size: 0.5rem;
+  font-size: 0.1rem;
 
-  width: 1rem;
-  left: 1rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
   text-align: center;
 
   top: 0.3rem;
   line-height: 0.75rem;
+}
+.firstPageBtn {
+  left: 0.3rem;
+    width: 2rem;
+
 }
 .secondPageBtn {
-  font-size: 0.5rem;
+  left: 2.65rem;
+    width: 2rem;
 
-  position: absolute;
-  top: 0.3rem;
-  left: 3rem;
-  width: 1rem;
-
-  line-height: 0.75rem;
-  border: 1px solid rgba(25, 186, 139, 0.17);
-  text-align: center;
 }
 .thirdPageBtn {
-  position: absolute;
-  font-size: 0.5rem;
+  width: 2rem;
 
-  top: 0.3rem;
   left: 5rem;
-  width: 1rem;
 
-  line-height: 0.75rem;
-  border: 1px solid rgba(25, 186, 139, 0.17);
-  text-align: center;
 }
 
 .forthPageBtn {
-  position: absolute;
-  font-size: 0.5rem;
+   width: 2.5rem;
 
-  top: 0.3rem;
-  right: 5rem;
-  width: 1rem;
+  right: 4.7rem;
 
-  line-height: 0.75rem;
-  border: 1px solid rgba(25, 186, 139, 0.17);
-  text-align: center;
 }
 
 .fifthPageBtn {
-  position: absolute;
-  font-size: 0.5rem;
 
-  top: 0.3rem;
-  width: 1rem;
+  width: 2rem;
 
-  width: 1rem;
+  right: 2.5rem;
 
-  right: 3rem;
-  line-height: 0.75rem;
-  border: 1px solid rgba(25, 186, 139, 0.17);
-  text-align: center;
 }
 
 .sixthPageBtn {
-  font-size: 0.5rem;
-  position: absolute;
-  width: 1rem;
-  top: 0.3rem;
-  right: 1rem;
-  line-height: 0.75rem;
-  border: 1px solid rgba(25, 186, 139, 0.17);
-  text-align: center;
+  width: 2rem;
+
+  right: 0.3rem;
+
 }
 </style>

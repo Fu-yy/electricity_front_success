@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'lib-flexible/flexible.js'
-// import ElementUI from 'element-ui';//导入elementUI
+import ElementUI from 'element-ui';//导入elementUI
 import 'element-ui/lib/theme-chalk/index.css';
 import echarts from 'echarts'
 // 如果需要配合 ECharts 扩展使用，只需要直接引入扩展包即可
@@ -18,7 +18,7 @@ import axios from 'axios'
 axios.defaults.baseURL = 'http://202.118.26.114:8081'
 Vue.prototype.$axios = axios;
 
-// Vue.use(ElementUI);
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts//全局引用echarts

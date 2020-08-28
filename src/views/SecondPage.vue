@@ -1208,7 +1208,7 @@ export default {
       // option
       option = {
         title: {
-          text: "商城流量统计",
+          text: "三大行业总体用电量分析",
           x: "center",
           y: 0,
           textStyle: {

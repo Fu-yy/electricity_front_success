@@ -636,7 +636,7 @@ export default {
           }
         },
         title: {
-          text: "今天你摸鱼了吗",
+          text: "三大行业用电趋势预测",
           left: 26,
           top: 26,
           textStyle: {
