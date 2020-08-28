@@ -13,6 +13,11 @@ import echarts from 'echarts'
 import 'echarts-gl'
 // import './assets/js/echart-theme/vintage.js'
 
+import axios from 'axios'
+// 设置反向代理，前端请求默认发送到 http://202.118.26.114:8081
+axios.defaults.baseURL = 'http://202.118.26.114:8081'
+Vue.prototype.$axios = axios;
+
 // Vue.use(ElementUI);
 
 Vue.config.productionTip = false

@@ -25,7 +25,7 @@
         <div class="bar" style="margin-bottom:1rem">
           <div class="barbox">
             <ul class="clearfix">
-              <li class="counter" style="width:100%;line-height: 2rem;">行业用电量关联性分析</li>
+              <li class="counter" style="width:100%;line-height: 2rem;">峰谷平电价和行业分时电价</li>
             </ul>
           </div>
         </div>
@@ -67,14 +67,14 @@
         </div>
         <div class="boxall" style="height: 3.2rem">
           <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart5">echart6</div>
+          <div class="allnav" id="echart4">echart6</div>
           <div class="boxfoot"></div>
         </div>
-        <div class="boxall" style="height: 3rem">
+        <!-- <div class="boxall" style="height: 3rem">
           <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart6">echart6</div>
           <div class="boxfoot"></div>
-        </div>
+        </div> -->
       </li>
     </ul>
   </div>
@@ -97,16 +97,16 @@ export default {
     this.drawChart2();
     this.drawChart3();
     this.drawChartMap1();
-    // this.drawChart4();
+    this.drawChart4();
     // this.drawChart5();
     // this.drawChartMap1();
-     var that = this;
+    var that = this;
     window.onresize = function() {
       that.$echarts.init(document.getElementById("echart1")).resize();
       that.$echarts.init(document.getElementById("echart2")).resize();
       that.$echarts.init(document.getElementById("echart3")).resize();
+      that.$echarts.init(document.getElementById("echart4")).resize();
       that.$echarts.init(document.getElementById("map_1")).resize();
-     
     };
   },
 
@@ -116,651 +116,162 @@ export default {
       var option = {};
       var t = this;
 
-      let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
-      let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
-      let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-      let xData = [
-        "01:00",
-        "03:00",
-        "05:00",
-        "07:00",
-        "09:00",
-        "11:00",
-        "13:00",
-        "15:00",
-        "17:00",
-        "19:00",
-        "21:00",
-        "23:00"
-      ];
-
-      for (var i = 0; i < xData.length; i++) {
-        dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
-        dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
-        dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
-        dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
-        dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
-        dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
+      var data = [];
+      var labelData = [];
+      for (var i = 0; i < 24; ++i) {
+        data.push({
+          value: Math.random() * 10 + 10 - Math.abs(i - 12),
+          name: i + ":00"
+        });
+        labelData.push({
+          value: 1,
+          name: i + ":00"
+        });
       }
-      console.log(dataC1);
-      console.log(dataC2);
-      console.log(dataC3);
-      console.log(dataD1);
-      console.log(dataD2);
-      console.log(dataD3);
 
-      var fontColor = "#30eee9";
       option = {
-        backgroundColor: "",
-        grid: {
-          left: "5%",
-          right: "2%",
-          top: "10%",
-          bottom: "15%",
-          containLabel: true
+        title: {
+          text: "24小时用电量分析",
+          left: "50%",
+          textAlign: "center",
+          top: "20%"
         },
         tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-            lineStyle: {
-              color: "#57617B"
-            }
-          }
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-        legend: {
-          data: ["C1", "C2", "C3", "D1", "D2", "D3"],
-          itemWidth: 20,
-          itemHeight: 10,
-          textStyle: {
-            fontSize: 14,
-            color: "#65aaf1"
-          },
-          right: "35%", //距离右侧
-          top: "5%"
-          // left : '50%'
-        },
-        xAxis: [
-          {
-            type: "category",
-            boundaryGap: false,
-            axisLabel: {
-              color: "#65aaf1"
-            },
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: "#0a2b52",
-                width: 1
-              }
-            },
-            /*axisTick:{
-	            	show:false,
-	            },  
-	            splitLine:{
-	            	show:true,
-		            lineStyle:{
-		            	color:'#195384'
-		            }
-		        },*/
-            data: xData
-          }
-        ],
-        yAxis: [
-          {
-            type: "value",
-            // name: 'kw/h',
-            nameTextStyle: {
-              color: "#65aaf1",
-              fontStyle: "normal"
-            },
-            axisLabel: {
-              formatter: "{value}",
-              textStyle: {
-                color: "#65aaf1"
-              }
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#0a2b52"
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: "#0a2b52",
-                width: 1,
-                type: "solid"
-              }
-            }
-          }
+        color: [
+          "#27D38A",
+          "#FFCA1C",
+          "#5DD1FA",
+          "#F88E25",
+          "#47A0FF",
+          "#FD6565"
         ],
         series: [
           {
-            name: "C1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
+            type: "pie",
+            data: data,
+            roseType: "area",
             itemStyle: {
               normal: {
-                color: "#0092f6",
-                lineStyle: {
-                  color: "#0092f6",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,146,246,0.9)"
-                    }
-                  ])
-                }
+                color: "white",
+                borderColor: "#22C3AA"
               }
             },
-            markPoint: {
-              itemStyle: {
-                normal: {
-                  color: "red"
-                }
+            labelLine: {
+              normal: {
+                show: false
               }
             },
-            data: dataC1
+            label: {
+              normal: {
+                show: false
+              }
+            }
           },
           {
-            name: "C2",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-
+            type: "pie",
+            data: labelData,
+            radius: ["75%", "100%"],
+            zlevel: -2,
             itemStyle: {
               normal: {
-                color: "#00d4c7",
-                lineStyle: {
-                  color: "#00d4c7",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
+                color: "#22C3AA",
+                borderColor: "white"
               }
             },
-            data: dataC2
-          },
-          {
-            name: "C3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
+            label: {
               normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(114,144,89,0.9)"
-                    }
-                  ])
-                }
+                position: "inside"
               }
-            },
-            data: dataC3
-          },
-          {
-            name: "D1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#3A44FB",
-                lineStyle: {
-                  color: "#3A44FB",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,46,101,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,166,246,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD1
-          },
-          {
-            name: "D2",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            symbolSize: 8,
-            showSymbol: false,
-            itemStyle: {
-              normal: {
-                color: "#6FE81A",
-                lineStyle: {
-                  color: "#6FE81A",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD2
-          },
-          {
-            name: "D3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD3
+            }
           }
         ]
       };
+
       echart1.setOption(option);
     },
+
     drawChart2() {
       let echart2 = this.$echarts.init(document.getElementById("echart2"));
       var option = {};
       var t = this;
 
-      let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
-      let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
-      let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-      let xData = [
-        "01:00",
-        "03:00",
-        "05:00",
-        "07:00",
-        "09:00",
-        "11:00",
-        "13:00",
-        "15:00",
-        "17:00",
-        "19:00",
-        "21:00",
-        "23:00"
-      ];
-
-      for (var i = 0; i < xData.length; i++) {
-        dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
-        dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
-        dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
-        dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
-        dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
-        dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
+      var data = [];
+      var labelData = [];
+      for (var i = 0; i < 24; ++i) {
+        data.push({
+          value: Math.random() * 10 + 10 - Math.abs(i - 12),
+          name: i + ":00"
+        });
+        labelData.push({
+          value: 1,
+          name: i + ":00"
+        });
       }
-      console.log(dataC1);
-      console.log(dataC2);
-      console.log(dataC3);
-      console.log(dataD1);
-      console.log(dataD2);
-      console.log(dataD3);
 
-      var fontColor = "#30eee9";
       option = {
-        backgroundColor: "",
-        grid: {
-          left: "5%",
-          right: "2%",
-          top: "10%",
-          bottom: "15%",
-          containLabel: true
+        title: {
+          text: "24小时用电量分析",
+          left: "50%",
+          textAlign: "center",
+          top: "20%"
         },
         tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-            lineStyle: {
-              color: "#57617B"
-            }
-          }
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-        legend: {
-          data: ["C1", "C2", "C3", "D1", "D2", "D3"],
-          itemWidth: 20,
-          itemHeight: 10,
-          textStyle: {
-            fontSize: 14,
-            color: "#65aaf1"
-          },
-          right: "35%", //距离右侧
-          top: "5%"
-          // left : '50%'
-        },
-        xAxis: [
-          {
-            type: "category",
-            boundaryGap: false,
-            axisLabel: {
-              color: "#65aaf1"
-            },
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: "#0a2b52",
-                width: 1
-              }
-            },
-            /*axisTick:{
-	            	show:false,
-	            },  
-	            splitLine:{
-	            	show:true,
-		            lineStyle:{
-		            	color:'#195384'
-		            }
-		        },*/
-            data: xData
-          }
-        ],
-        yAxis: [
-          {
-            type: "value",
-            // name: 'kw/h',
-            nameTextStyle: {
-              color: "#65aaf1",
-              fontStyle: "normal"
-            },
-            axisLabel: {
-              formatter: "{value}",
-              textStyle: {
-                color: "#65aaf1"
-              }
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#0a2b52"
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: "#0a2b52",
-                width: 1,
-                type: "solid"
-              }
-            }
-          }
+        color: [
+          "#27D38A",
+          "#FFCA1C",
+          "#5DD1FA",
+          "#F88E25",
+          "#47A0FF",
+          "#FD6565"
         ],
         series: [
           {
-            name: "C1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
+            type: "pie",
+            data: data,
+            roseType: "area",
             itemStyle: {
               normal: {
-                color: "#0092f6",
-                lineStyle: {
-                  color: "#0092f6",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,146,246,0.9)"
-                    }
-                  ])
-                }
+                color: "white",
+                borderColor: "#22C3AA"
               }
             },
-            markPoint: {
-              itemStyle: {
-                normal: {
-                  color: "red"
-                }
+            labelLine: {
+              normal: {
+                show: false
               }
             },
-            data: dataC1
+            label: {
+              normal: {
+                show: false
+              }
+            }
           },
           {
-            name: "C2",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-
+            type: "pie",
+            data: labelData,
+            radius: ["75%", "100%"],
+            zlevel: -2,
             itemStyle: {
               normal: {
-                color: "#00d4c7",
-                lineStyle: {
-                  color: "#00d4c7",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
+                color: "#22C3AA",
+                borderColor: "white"
               }
             },
-            data: dataC2
-          },
-          {
-            name: "C3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
+            label: {
               normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(114,144,89,0.9)"
-                    }
-                  ])
-                }
+                position: "inside"
               }
-            },
-            data: dataC3
-          },
-          {
-            name: "D1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#3A44FB",
-                lineStyle: {
-                  color: "#3A44FB",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,46,101,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,166,246,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD1
-          },
-          {
-            name: "D2",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            symbolSize: 8,
-            showSymbol: false,
-            itemStyle: {
-              normal: {
-                color: "#6FE81A",
-                lineStyle: {
-                  color: "#6FE81A",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD2
-          },
-          {
-            name: "D3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD3
+            }
           }
         ]
       };
+
       echart2.setOption(option);
     },
     drawChart3() {
@@ -768,623 +279,521 @@ export default {
       var option = {};
       var t = this;
 
-      let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
-      let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
-      let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-      let xData = [
-        "01:00",
-        "03:00",
-        "05:00",
-        "07:00",
-        "09:00",
-        "11:00",
-        "13:00",
-        "15:00",
-        "17:00",
-        "19:00",
-        "21:00",
-        "23:00"
-      ];
-
-      for (var i = 0; i < xData.length; i++) {
-        dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
-        dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
-        dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
-        dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
-        dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
-        dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
+      var data = [];
+      var labelData = [];
+      for (var i = 0; i < 24; ++i) {
+        data.push({
+          value: Math.random() * 10 + 10 - Math.abs(i - 12),
+          name: i + ":00"
+        });
+        labelData.push({
+          value: 1,
+          name: i + ":00"
+        });
       }
-      console.log(dataC1);
-      console.log(dataC2);
-      console.log(dataC3);
-      console.log(dataD1);
-      console.log(dataD2);
-      console.log(dataD3);
 
-      var fontColor = "#30eee9";
       option = {
-        backgroundColor: "",
-        grid: {
-          left: "5%",
-          right: "2%",
-          top: "10%",
-          bottom: "15%",
-          containLabel: true
+        title: {
+          text: "24小时用电量分析",
+          left: "50%",
+          textAlign: "center",
+          top: "20%"
+        },
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        color: [
+          "#27D38A",
+          "#FFCA1C",
+          "#5DD1FA",
+          "#F88E25",
+          "#47A0FF",
+          "#FD6565"
+        ],
+        series: [
+          {
+            type: "pie",
+            data: data,
+            roseType: "area",
+            itemStyle: {
+              normal: {
+                color: "white",
+                borderColor: "#22C3AA"
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            label: {
+              normal: {
+                show: false
+              }
+            }
+          },
+          {
+            type: "pie",
+            data: labelData,
+            radius: ["75%", "100%"],
+            zlevel: -2,
+            itemStyle: {
+              normal: {
+                color: "#22C3AA",
+                borderColor: "white"
+              }
+            },
+            label: {
+              normal: {
+                position: "inside"
+              }
+            }
+          }
+        ]
+      };
+
+      echart3.setOption(option);
+    },
+    drawChart4() {
+      let echart4 = this.$echarts.init(document.getElementById("echart4"));
+      var option = {};
+      var t = this;
+
+      var data = [];
+      var labelData = [];
+      for (var i = 0; i < 24; ++i) {
+        data.push({
+          value: Math.random() * 10 + 10 - Math.abs(i - 12),
+          name: i + ":00"
+        });
+        labelData.push({
+          value: 1,
+          name: i + ":00"
+        });
+      }
+
+      option = {
+        title: {
+          text: "24小时用电量分析",
+          left: "50%",
+          textAlign: "center",
+          top: "20%"
+        },
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        color: [
+          "#27D38A",
+          "#FFCA1C",
+          "#5DD1FA",
+          "#F88E25",
+          "#47A0FF",
+          "#FD6565"
+        ],
+        series: [
+          {
+            type: "pie",
+            data: data,
+            roseType: "area",
+            itemStyle: {
+              normal: {
+                color: "white",
+                borderColor: "#22C3AA"
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            label: {
+              normal: {
+                show: false
+              }
+            }
+          },
+          {
+            type: "pie",
+            data: labelData,
+            radius: ["75%", "100%"],
+            zlevel: -2,
+            itemStyle: {
+              normal: {
+                color: "#22C3AA",
+                borderColor: "white"
+              }
+            },
+            label: {
+              normal: {
+                position: "inside"
+              }
+            }
+          }
+        ]
+      };
+
+      echart4.setOption(option);
+    },
+
+    drawChartMap1() {
+      let map_1 = this.$echarts.init(document.getElementById("map_1"));
+      var option = {};
+      var t = this;
+
+      var xData = (function() {
+        var data = [
+          "新福利",
+          "溢通公司",
+          "南沙巴士",
+          "从化分公司",
+          "花都恒通",
+          "二巴一分",
+          "二巴二分",
+          "番禺片区",
+          "佛广集团",
+          "客运旅包"
+        ];
+        return data;
+      })();
+
+      option = {
+        backgroundColor: "RGBA(7, 28, 51, 1)",
+        legend: {
+          data: ["岗前培训", "安全例会", "技术培训", "教育约谈", "其它"],
+          left: "15%",
+          top: 20,
+          itemWidth: 60,
+          itemHeight: 30,
+          type: "plain",
+          textStyle: {
+            color: "RGBA(154, 209, 253, 1)"
+          }
         },
         tooltip: {
           trigger: "axis",
           axisPointer: {
             type: "shadow",
-            lineStyle: {
-              color: "#57617B"
+            textStyle: {
+              color: "#fff"
             }
           }
         },
-        legend: {
-          data: ["C1", "C2", "C3", "D1", "D2", "D3"],
-          itemWidth: 20,
-          itemHeight: 10,
+        grid: {
+          borderWidth: 0,
+          top: 110,
+          bottom: 95,
           textStyle: {
-            fontSize: 14,
-            color: "#65aaf1"
-          },
-          right: "35%", //距离右侧
-          top: "5%"
-          // left : '50%'
+            color: "#fff"
+          }
         },
+        calculable: true,
         xAxis: [
           {
             type: "category",
-            boundaryGap: false,
-            axisLabel: {
-              color: "#65aaf1"
-            },
             axisLine: {
-              show: true,
               lineStyle: {
-                color: "#0a2b52",
-                width: 1
+                color: "rgba(255,255,255,.5)"
               }
             },
-            /*axisTick:{
-	            	show:false,
-	            },  
-	            splitLine:{
-	            	show:true,
-		            lineStyle:{
-		            	color:'#195384'
-		            }
-		        },*/
+            splitLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            },
+            splitArea: {
+              show: false
+            },
+            axisLabel: {
+              interval: 0,
+              color: "rgba(255,255,255,0.7)",
+              fontSize: 18
+            },
             data: xData
           }
         ],
         yAxis: [
           {
             type: "value",
-            // name: 'kw/h',
-            nameTextStyle: {
-              color: "#65aaf1",
-              fontStyle: "normal"
-            },
-            axisLabel: {
-              formatter: "{value}",
-              textStyle: {
-                color: "#65aaf1"
-              }
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#0a2b52"
-              }
-            },
             splitLine: {
               show: true,
               lineStyle: {
-                color: "#0a2b52",
-                width: 1,
-                type: "solid"
+                type: "dashed",
+                color: "RGBA(3, 75, 97, 1)"
               }
+            },
+            axisLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              interval: 0,
+              color: "rgba(255,255,255,0.5)",
+              fontSize: 20
+            },
+            splitArea: {
+              show: false
+            }
+          },
+          {
+            type: "value",
+            splitLine: {
+              show: false
+            },
+            min: 0,
+            axisLabel: {
+              interval: 0,
+              color: "rgba(255,255,255,0.5)",
+              fontSize: 20
             }
           }
         ],
         series: [
           {
-            name: "C1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
+            name: "岗前培训",
+            type: "bar",
+            stack: "1",
+            barMaxWidth: 35,
+            barGap: "10%",
             itemStyle: {
               normal: {
-                color: "#0092f6",
-                lineStyle: {
-                  color: "#0092f6",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
                     {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
+                      offset: 0,
+                      color: "rgba(0, 214, 255, 0.6)" // 0% 处的颜色
                     },
                     {
                       offset: 1,
-                      color: "rgba(0,146,246,0.9)"
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
                     }
-                  ])
-                }
+                  ],
+                  global: false // 缺省为 false
+                },
+                opacity: 1,
+                borderColor: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "rgba(0, 214, 255, 0.6)" // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
+                    }
+                  ],
+                  global: false // 缺省为 false
+                },
+                borderWidth: 4
               }
             },
-            markPoint: {
-              itemStyle: {
-                normal: {
-                  color: "red"
-                }
-              }
-            },
-            data: dataC1
+            data: [16, 11, 8, 14, 17, 16, 11, 8, 14, 17]
           },
-          {
-            name: "C2",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
 
+          {
+            name: "安全例会",
+            type: "bar",
+            stack: "2",
             itemStyle: {
               normal: {
-                color: "#00d4c7",
-                lineStyle: {
-                  color: "#00d4c7",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
                     {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
+                      offset: 0,
+                      color: "rgba(48, 112, 255, 0.6)" // 0% 处的颜色
                     },
                     {
                       offset: 1,
-                      color: "rgba(0,212,199,0.9)"
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
                     }
-                  ])
-                }
+                  ],
+                  global: false // 缺省为 false
+                },
+                opacity: 1,
+                borderColor: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "rgba(48, 112, 255, 0.6)" // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
+                    }
+                  ],
+                  global: false // 缺省为 false
+                },
+                borderWidth: 4
               }
             },
-            data: dataC2
+            data: [9, 7, 3, 2, 6, 9, 7, 3, 2, 6]
           },
           {
-            name: "C3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
+            name: "技术培训",
+            type: "bar",
+            stack: "3",
+            barMaxWidth: 35,
+            barGap: "40%",
             itemStyle: {
               normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
                     {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
+                      offset: 0,
+                      color: "rgba(255, 0, 132, 0.6)" // 0% 处的颜色
                     },
                     {
                       offset: 1,
-                      color: "rgba(114,144,89,0.9)"
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
                     }
-                  ])
-                }
+                  ],
+                  global: false // 缺省为 false
+                },
+                opacity: 1,
+                borderColor: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "rgba(255, 0, 132, 0.6)" // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
+                    }
+                  ],
+                  global: false // 缺省为 false
+                },
+                borderWidth: 4
               }
             },
-            data: dataC3
+            data: [13, 19, 6, 12, 15, 13, 19, 6, 12, 15]
           },
           {
-            name: "D1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
+            name: "教育约谈",
+            type: "bar",
+            stack: "4",
+            barMaxWidth: 35,
+            barGap: "40%",
             itemStyle: {
               normal: {
-                color: "#3A44FB",
-                lineStyle: {
-                  color: "#3A44FB",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
                     {
-                      offset: 0.4,
-                      color: "rgba(7,46,101,0.1)"
+                      offset: 0,
+                      color: "rgba(192, 0, 255, 0.6)" // 0% 处的颜色
                     },
                     {
                       offset: 1,
-                      color: "rgba(0,166,246,0.9)"
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
                     }
-                  ])
-                }
+                  ],
+                  global: false // 缺省为 false
+                },
+                opacity: 1,
+                borderColor: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "rgba(192, 0, 255, 0.6)" // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(83, 14, 224, 0.15)" // 100% 处的颜色
+                    }
+                  ],
+                  global: false // 缺省为 false
+                },
+                borderWidth: 4
               }
             },
-            data: dataD1
+            data: [13, 19, 6, 12, 15, 13, 19, 6, 12, 15]
           },
           {
-            name: "D2",
+            name: "其它",
             type: "line",
-            stack: "总量",
-            symbol: "circle",
-            symbolSize: 8,
-            showSymbol: false,
+            yAxisIndex: 1,
+            symbolSize: 10,
+            symbol: "emptyCircle",
             itemStyle: {
               normal: {
-                color: "#6FE81A",
-                lineStyle: {
-                  color: "#6FE81A",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
+                color: "rgba(0, 255, 180, 1)",
+                barBorderRadius: "100%"
+              },
+              borderWidth: 5
             },
-            data: dataD2
-          },
-          {
-            name: "D3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD3
-          }
-        ]
-      };
-      echart3.setOption(option);
-    },
-     drawChartMap1() {
-      let map_1 = this.$echarts.init(
-        document.getElementById("map_1")
-      );
-      var option = {};
-      var t = this;
-
-      // Generate data
-      var category = [
-        "0:00",
-        "1:00",
-        "2:00",
-        "3:00",
-        "4:00",
-        "5:00",
-        "6:00",
-        "7:00",
-        "8:00",
-        "9:00",
-        "10:00",
-        "11:00",
-        "12:00",
-        "13:00",
-        "14:00",
-        "15:00",
-        "16:00",
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-        "23:00"
-      ];
-      var dottedBase = [];
-      var lineData = [
-        18092,
-        20728,
-        24045,
-        28348,
-        32808,
-        36097,
-        39867,
-        44715,
-        48444,
-        50415,
-        56061,
-        62677,
-        59521,
-        67560,
-        18092,
-        20728,
-        24045,
-        28348
-      ];
-      var barData = [
-        4600,
-        5000,
-        5500,
-        6500,
-        7500,
-        8500,
-        9900,
-        12500,
-        14000,
-        21500,
-        23200,
-        24450,
-        25250,
-        33300,
-        4600,
-        5000,
-        5500,
-        4555
-      ];
-      var rateData = [
-        1832,
-        2028,
-        2445,
-        2838,
-        3288,
-        3607,
-        3967,
-        4415,
-        4844,
-        5045,
-        5061,
-        6677,
-        5521,
-        6560,
-        1092,
-        2028,
-        2045,
-        2348
-      ];
-      var rateData1 = [
-        460,
-        500,
-        550,
-        1500,
-        750,
-        850,
-        900,
-        1200,
-        1400,
-        2150,
-        2320,
-        2445,
-        2550,
-        330,
-        460,
-        500,
-        550,
-        455
-      ];
-
-      // option
-      option = {
-        title: {
-          text: "商城流量统计",
-          x: "center",
-          y: 0,
-          textStyle: {
-            color: "#B4B4B4",
-            fontSize: 16,
-            fontWeight: "normal"
-          }
-        },
-        backgroundColor: "",
-        tooltip: {
-          trigger: "axis",
-          backgroundColor: "rgba(255,255,255,0.1)",
-          axisPointer: {
-            type: "shadow",
-            label: {
-              show: true,
-              backgroundColor: "#7B7DDC"
-            }
-          }
-        },
-        toolbox: {
-          feature: {
-            dataView: {
-              show: true,
-              readOnly: false
-            },
-            magicType: {
-              show: true,
-              type: ["line", "bar", "tiled"]
-            },
-            restore: {
-              show: true
-            },
-            saveAsImage: {
-              show: true
-            }
-          }
-        },
-        legend: {
-          data: ["浏览量", "商品浏览量", "访客数", "商品访问数"],
-          textStyle: {
-            color: "#B4B4B4"
-          },
-          top: "7%"
-        },
-        grid: {
-          x: "12%",
-          width: "82%",
-          y: "12%"
-        },
-        xAxis: {
-          data: category,
-          axisLine: {
             lineStyle: {
-              color: "#B4B4B4"
-            }
-          },
-          axisTick: {
-            show: false
-          }
-        },
-        yAxis: [
-          {
-            splitLine: {
-              show: false
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#B4B4B4"
-              }
-            },
-
-            axisLabel: {
-              formatter: "{value} "
-            }
-          },
-          {
-            splitLine: {
-              show: false
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#B4B4B4"
-              }
-            },
-            axisLabel: {
-              formatter: "{value} "
-            }
-          }
-        ],
-
-        series: [
-          {
-            name: "浏览量",
-            type: "bar",
-            barGap: "-100%",
-            barWidth: 10,
-            itemStyle: {
               normal: {
-                barBorderRadius: 5,
-                color: new t.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  {
-                    offset: 0,
-                    color: "rgba(156,107,211,0.5)"
-                  },
-                  {
-                    offset: 0.2,
-                    color: "rgba(156,107,211,0.3)"
-                  },
-                  {
-                    offset: 1,
-                    color: "rgba(156,107,211,0)"
-                  }
-                ])
+                width: 3,
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "rgba(0, 255, 180, 0.5)" // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(0, 255, 180, 0.5)" // 100% 处的颜色
+                    }
+                  ],
+                  global: false // 缺省为 false
+                }
               }
             },
-            z: -12,
-
-            data: lineData
-          },
-          {
-            name: "商品浏览量",
-            type: "bar",
-            barWidth: 10,
-            itemStyle: {
-              normal: {
-                barBorderRadius: 5,
-                color: new t.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  {
-                    offset: 0,
-                    color: "#956FD4"
-                  },
-                  {
-                    offset: 1,
-                    color: "#3EACE5"
-                  }
-                ])
-              }
-            },
-            data: barData
-          },
-          {
-            name: "访客数",
-            type: "line",
-            smooth: true,
-            showAllSymbol: true,
-            symbol: "emptyCircle",
-            symbolSize: 8,
-            yAxisIndex: 1,
-            itemStyle: {
-              normal: {
-                color: "#F02FC2"
-              }
-            },
-            data: rateData
-          },
-          {
-            name: "商品访问数",
-            type: "line",
-            smooth: true,
-            showAllSymbol: true,
-            symbol: "emptyCircle",
-            symbolSize: 8,
-            yAxisIndex: 1,
-            itemStyle: {
-              normal: {
-                color: "#00ca95"
-              }
-            },
-            data: rateData1
+            data: [28, 20, 15, 10, 9, 7, 6, 4, 3, 0]
           }
         ]
       };
       map_1.setOption(option);
-    },
-
+    }
   }
 };
 </script>

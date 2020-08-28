@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/findElectricityPastList': {
+                target: 'http://202.118.26.114:8081',
+                changeOrigin: true,
+                pathRewrite: {
+                  '^/findElectricityPastListt': ''
+                }
+            },
+
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

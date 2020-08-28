@@ -3,30 +3,19 @@
     <ul class="clearfix">
       <li>
         <div class="boxall" style="height: 7.4rem">
-          <div class="alltitle">模111样式</div>
           <div class="allnav" id="echart1"></div>
           <div class="boxfoot"></div>
         </div>
         <div class="boxall" style="height: 7rem">
-          <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart2"></div>
           <div class="boxfoot"></div>
         </div>
-        <!-- <div class="boxall" style="height: 5rem">
-          <div style="height:100%; width: 100%;">
-            <div class="alltitle">模块标题样式</div>
-            <div class="sy" id="fb1"></div>
-            <div class="sy" id="fb2"></div>
-            <div class="sy" id="fb3"></div>
-          </div>
-          <div class="boxfoot"></div>
-        </div>-->
       </li>
       <li>
         <div class="bar" style="margin-bottom:1rem">
           <div class="barbox">
             <ul class="clearfix">
-              <li class="counter" style="width:100%;line-height: 2rem;">行业历史用电量统计分析</li>
+              <li class="counter" style="width:100%;line-height: 1rem;font-size:.5rem">行业历史用电量统计分析</li>
             </ul>
           </div>
         </div>
@@ -36,7 +25,6 @@
           <div class="barbox">
             <ul class="clearfix">
               <li class="pulll_left counter">12581189</li>
-              <li class="pulll_left counter">3912410</li>
               <li class="pulll_left counter">3912410</li>
             </ul>
           </div>
@@ -63,12 +51,10 @@
       </li>
       <li>
         <div class="boxall" style="height:7.4rem">
-          <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart4"></div>
           <div class="boxfoot"></div>
         </div>
         <div class="boxall" style="height: 7rem">
-          <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart5"></div>
           <div class="boxfoot"></div>
         </div>
@@ -95,10 +81,48 @@ export default {
     };
   },
   mounted() {
+    // this.$axios.get("/findElectricityPastList").then(res => {
+    //   console.log("*********************");
+    //   console.log(res.data.electricityPastDataList);
+    //   let resoutDataDate = res.data.electricityPastDataList;
+    //   console.log("*********************");
+
+    //   let resoutData = res.data.pastElectricityList;
+
+    //   resoutDataDate.forEach(element => {
+    //     echart1Data.push(element.electricityDateStr);
+    //   });
+    //   console.log("echart1Data");
+    //   console.log(echart1Data);
+
+    //   resoutData.forEach(element => {
+    //     let objectData = {
+    //       name: "",
+    //       value: ""
+    //     };
+    //     objectData.name = element.electricityDateStr;
+    //     objectData.value = element.electricityNum+"";
+    //     if (element.electricityName === "汽车") {
+    //       echart1DataList1.push(objectData);
+    //     } else if (element.electricityName === "航空") {
+    //       echart1DataList2.push(objectData);
+    //     }
+    //     console.log(element);
+    //   });
+    //   // 汽车数据列表
+    //   console.log("汽车数据列表");
+    //   console.log(echart1DataList1);
+    //         console.log("汽车数据列表*****************");
+
+    //   // 航空数据列表
+    //   console.log(echart1DataList2);
+    // });
+
     this.drawChart1();
     this.drawChart2();
     this.drawChart4();
     this.drawChart5();
+
     // this.drawChartMap1();
     var that = this;
     window.onresize = function() {
@@ -106,83 +130,44 @@ export default {
       that.$echarts.init(document.getElementById("echart2")).resize();
       that.$echarts.init(document.getElementById("echart4")).resize();
       that.$echarts.init(document.getElementById("echart5")).resize();
-     
     };
   },
   methods: {
     drawChart1() {
       let echart1 = this.$echarts.init(document.getElementById("echart1"));
       var t = this;
+
       var option = {};
 
       //echarts折线图
 
       let dataList = [
         {
-          name: "2020-06-10",
-          value: "150"
+          name: "2020-08-23",
+          value: "1351143435.5"
         },
         {
-          name: "2020-06-11",
-          value: "170"
+          name: "2020-08-24",
+          value: "4354343.54"
         },
         {
-          name: "2020-06-12",
-          value: "210"
-        },
-        {
-          name: "2020-06-13",
-          value: "240"
-        },
-        {
-          name: "2020-06-14",
-          value: "320"
-        },
-        {
-          name: "2020-06-15",
-          value: "272"
-        },
-        {
-          name: "2020-06-16",
-          value: "220"
-        },
-        {
-          name: "2020-06-17",
-          value: "160"
+          name: "2020-08-25",
+          value: "4354343.54"
         }
       ];
+
       let dataList2 = [
         {
-          name: "2020-06-10",
-          value: "240"
+          name: "2020-08-23",
+          value: "123123.123"
         },
         {
-          name: "2020-06-11",
-          value: "220"
+          name: "2020-08-24",
+          value: "14124123.1"
         },
         {
-          name: "2020-06-12",
-          value: "185"
-        },
-        {
-          name: "2020-06-13",
-          value: "175"
-        },
-        {
-          name: "2020-06-14",
-          value: "220"
-        },
-        {
-          name: "2020-06-15",
-          value: "310"
-        },
-        {
-          name: "2020-06-16",
-          value: "222"
-        },
-        {
-          name: "2020-06-17",
-          value: "135"
+          name: "2020-08-25",
+          value: "4124122313.1"
         }
       ];
 
@@ -192,13 +177,13 @@ export default {
           trigger: "axis"
         },
         legend: {
-          data: ["摸鱼时长", "学习时长"],
+          data: ["汽车", "航空", "机械"],
           textStyle: {
             color: "#fff"
           }
         },
         title: {
-          text: "今天你摸鱼了吗",
+          text: "行业历史用电量对比",
           left: 26,
           top: 26,
           textStyle: {
@@ -242,16 +227,7 @@ export default {
               fontSize: "10"
             }
           },
-          data: [
-            "2020-06-10",
-            "2020-06-11",
-            "2020-06-12",
-            "2020-06-13",
-            "2020-06-14",
-            "2020-06-15",
-            "2020-06-16",
-            "2020-06-17"
-          ]
+          data: ["2020-08-23", "2222-08-24", "2020-08-25"]
         },
         yAxis: [
           {
@@ -282,20 +258,22 @@ export default {
         ],
         series: [
           {
-            name: "摸鱼时长",
+            name: "汽车",
             type: "line",
             smooth: true, //是否平滑曲线显示
             showSymbol: false,
-            markPoint: {
-              data: [
-                {
-                  name: "周最高",
-                  value: 320,
-                  xAxis: 4,
-                  yAxis: 320
-                }
-              ]
-            },
+
+            // 最大值
+            // markPoint: {
+            //   data: [
+            //     {
+            //       name: "周最高",
+            //       value: 320,
+            //       xAxis: 4,
+            //       yAxis: 320
+            //     }
+            //   ]
+            // },
             itemStyle: {
               color: "#3eb5dd",
               borderColor: "#f1f1f1",
@@ -355,7 +333,7 @@ export default {
             data: dataList
           },
           {
-            name: "学习时长",
+            name: "航空",
             type: "line",
             smooth: true, //是否平滑曲线显示
             showSymbol: false,
@@ -364,9 +342,12 @@ export default {
               borderColor: "#f1f1f1",
               borderWidth: 1
             },
-            markPoint: {
-              data: [{ name: "周最高", value: 310, xAxis: 5, yAxis: 310 }]
-            },
+
+            //        最大值
+
+            // markPoint: {
+            //   data: [{ name: "用电量最高", value: 310, xAxis: 5, yAxis: 310 }]
+            // },
             lineStyle: {
               normal: {
                 width: 4,
@@ -419,11 +400,139 @@ export default {
               }
             },
             data: dataList2
+          },
+          {
+            name: "机械",
+            type: "line",
+            smooth: true, //是否平滑曲线显示
+            showSymbol: false,
+            itemStyle: {
+              color: "#feb64d",
+              borderColor: "#f1f1f1",
+              borderWidth: 1
+            },
+            // markPoint: {
+            //   data: [{ name: "用电量最高", value: 310, xAxis: 5, yAxis: 310 }]
+            // },
+            lineStyle: {
+              normal: {
+                width: 4,
+                color: {
+                  type: "linear",
+
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#fed207" // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "#feb64d" // 100% 处的颜色
+                    }
+                  ],
+                  globalCoord: false // 缺省为 false
+                },
+                shadowColor: "rgba(254,182,77, 0.5)",
+                shadowBlur: 12,
+                shadowOffsetY: 5
+              }
+            },
+            areaStyle: {
+              //区域填充样式
+              normal: {
+                color: new t.$echarts.graphic.LinearGradient(
+                  0,
+                  0,
+                  0,
+                  1,
+                  [
+                    {
+                      offset: 0,
+                      color: "rgba(254,182,77, 0.6)"
+                    },
+                    {
+                      offset: 0.6,
+                      color: "rgba(254,182,77, 0.2)"
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(254,182,77, 0.01)"
+                    }
+                  ],
+                  false
+                ),
+                shadowColor: "rgba(254,182,77, 0.4)",
+                shadowBlur: 6
+              }
+            },
+            data: null
           }
         ]
       };
 
       echart1.setOption(option);
+
+      this.$axios.get("/findElectricityPastList").then(res => {
+        let electricityPastDataList = res.data.data.electricityPastDataList;
+        let pastElectricityList = res.data.data.pastElectricityList;
+        let resoutDataDateStr = [];
+
+        // 汽车数据列表
+        let echart1DataList1 = [];
+        //航空数据列表
+        let echart1DataList2 = [];
+        //机械数据列表
+
+        let echart1DataList3 = [];
+        console.log(res.data.data.electricityPastDataList);
+
+        pastElectricityList.forEach(element => {
+          console.log(element);
+          var optionObject = {
+            name: element.electricityDateStr,
+            value: "" + element.electricityNum
+          };
+
+          if (element.electricityName === "汽车") {
+            echart1DataList1.push(optionObject);
+          } else if (element.electricityName === "航空") {
+            echart1DataList2.push(optionObject);
+          } else {
+            echart1DataList3.push(optionObject);
+          }
+        });
+        // electricityPastDataList.forEach(element => {
+        //   console.log(element);
+        //   resoutDataDateStr.push(element.electricityDateStr);
+        // });
+
+        console.log("ecccccccc1************")
+        console.log(echart1DataList1);
+        console.log(echart1DataList2);
+        console.log(echart1DataList3);
+
+        console.log("ecccccccc1************")
+
+        echart1.setOption({
+          xAxis: {
+            data: electricityPastDataList
+          },
+          series: [
+            {
+              name: "汽车",
+              data: echart1DataList1
+            },
+            {
+              name: "航空",
+              data: echart1DataList2
+            },
+            {
+              name: "机械",
+              data: echart1DataList3
+            }
+          ]
+        });
+      });
     },
     drawChart2() {
       let echart2 = this.$echarts.init(document.getElementById("echart2"));
@@ -552,96 +661,184 @@ export default {
               }
             },
             data: [
-              {
-                value: 63,
-                name: "容量小设备老旧",
-                itemStyle: {
-                  borderColor: colorArr[0],
-                  borderWidth: 2,
-                  shadowBlur: 20,
-                  shadowColor: "#41a8f8",
-                  shadowOffsetx: 25,
-                  shadowOffsety: 20,
-                  color: colorAlpha[0]
-                }
-              },
-              {
-                value: 27,
-                name: "季节性企业用电",
-                itemStyle: {
-                  borderColor: colorArr[1],
-                  borderWidth: 2,
-                  shadowBlur: 20,
-                  shadowColor: colorArr[1],
-                  shadowOffsetx: 25,
-                  shadowOffsety: 20,
-                  color: colorAlpha[1]
-                }
-              },
-              {
-                value: 7,
-                name: "企业用电高峰",
-                itemStyle: {
-                  borderColor: colorArr[2],
-                  borderWidth: 2,
-                  shadowBlur: 20,
-                  shadowColor: colorArr[2],
-                  shadowOffsetx: 25,
-                  shadowOffsety: 20,
-                  color: colorAlpha[2]
-                }
-              },
-              {
-                value: 13,
-                name: "节假日",
-                itemStyle: {
-                  borderColor: colorArr[3],
-                  borderWidth: 2,
-                  shadowBlur: 20,
-                  shadowColor: colorArr[3],
-                  shadowOffsetx: 25,
-                  shadowOffsety: 20,
-                  color: colorAlpha[3]
-                }
-              },
-              {
-                value: 10,
-                name: "临时用电",
-                itemStyle: {
-                  borderColor: colorArr[4],
-                  borderWidth: 2,
-                  shadowBlur: 20,
-                  shadowColor: colorArr[4],
-                  shadowOffsetx: 25,
-                  shadowOffsety: 20,
-                  color: colorAlpha[4]
-                }
-              },
-              {
-                value: 6,
-                name: "三相用电不平衡",
-                itemStyle: {
-                  borderColor: colorArr[5],
-                  borderWidth: 2,
-                  shadowBlur: 20,
-                  shadowColor: colorArr[5],
-                  shadowOffsetx: 25,
-                  shadowOffsety: 20,
-                  color: colorAlpha[5]
-                }
-              }
+              // {
+              //   value: 0,
+              //   name: "汽车行业历史总用电量",
+              //   itemStyle: {
+              //     borderColor: colorArr[0],
+              //     borderWidth: 2,
+              //     shadowBlur: 20,
+              //     shadowColor: "#41a8f8",
+              //     shadowOffsetx: 25,
+              //     shadowOffsety: 20,
+              //     color: colorAlpha[0]
+              //   }
+              // },
+              // {
+              //   value: 27,
+              //   name: "汽车行业历史总用电量",
+              //   itemStyle: {
+              //     borderColor: colorArr[4],
+              //     borderWidth: 2,
+              //     shadowBlur: 20,
+              //     shadowColor: "#41a8f8",
+              //     shadowOffsetx: 25,
+              //     shadowOffsety: 20,
+              //     color: colorAlpha[4]
+              //   }
+              // },
+              // {
+              //   value: 0,
+              //   name: "航空行业历史总用电量",
+              //   itemStyle: {
+              //     borderColor: colorArr[2],
+              //     borderWidth: 2,
+              //     shadowBlur: 20,
+              //     shadowColor: colorArr[2],
+              //     shadowOffsetx: 25,
+              //     shadowOffsety: 20,
+              //     color: colorAlpha[2]
+              //   }
+              // },
+              // {
+              //   value: 13,
+              //   name: "节假日",
+              //   itemStyle: {
+              //     borderColor: colorArr[3],
+              //     borderWidth: 2,
+              //     shadowBlur: 20,
+              //     shadowColor: colorArr[3],
+              //     shadowOffsetx: 25,
+              //     shadowOffsety: 20,
+              //     color: colorAlpha[3]
+              //   }
+              // },
+              // {
+              //   value: 10,
+              //   name: "临时用电",
+              //   itemStyle: {
+              //     borderColor: colorArr[4],
+              //     borderWidth: 2,
+              //     shadowBlur: 20,
+              //     shadowColor: colorArr[4],
+              //     shadowOffsetx: 25,
+              //     shadowOffsety: 20,
+              //     color: colorAlpha[4]
+              //   }
+              // },
+              // {
+              //   value: 6,
+              //   name: "机械行业历史总用电量",
+              //   itemStyle: {
+              //     borderColor: colorArr[5],
+              //     borderWidth: 2,
+              //     shadowBlur: 20,
+              //     shadowColor: colorArr[5],
+              //     shadowOffsetx: 25,
+              //     shadowOffsety: 20,
+              //     color: colorAlpha[5]
+              //   }
+              // }
             ]
           }
         ]
       };
       echart2.setOption(option);
+
+      this.$axios.get("/findElectricityPastList").then(res => {
+        console.log("res");
+        console.log(res);
+        let electricityPastDataList = res.data.data.electricityPastDataList;
+        let pastElectricityList = res.data.data.pastElectricityList;
+        let resoutDataDateStr = [];
+
+        // 汽车数据列表
+        let echart1DataSum1 = 0;
+
+        //航空数据列表
+        let echart1DataSum2 = 0;
+
+        //机械数据列表
+
+        let echart1DataSum3 = 0;
+
+        console.log(res.data.data.electricityPastDataList);
+
+        pastElectricityList.forEach(element => {
+          console.log(element);
+          // var optionObject = {
+          //   name: element.electricityDateStr,
+          //   value: "" + element.electricityNum
+          // };
+
+          if (element.electricityName === "汽车") {
+            echart1DataSum1 += element.electricityNum;
+          } else if (element.electricityName === "航空") {
+            echart1DataSum2 += element.electricityNum;
+          } else {
+            echart1DataSum3 += element.electricityNum;
+          }
+        });
+
+        electricityPastDataList.forEach(element => {
+          console.log(element);
+          resoutDataDateStr.push(element.electricityDateStr);
+        });
+
+        echart2.setOption({
+          series: [
+            {
+              data: [
+                {
+                  value: echart1DataSum1,
+                  name: "汽车行业历史总用电量",
+                  itemStyle: {
+                    borderColor: colorArr[1],
+                    borderWidth: 2,
+                    shadowBlur: 20,
+                    shadowColor: "#41a8f8",
+                    shadowOffsetx: 25,
+                    shadowOffsety: 20,
+                    color: colorAlpha[1]
+                  }
+                },
+
+                {
+                  value: echart1DataSum2,
+                  name: "航空行业历史总用电量",
+                  itemStyle: {
+                    borderColor: colorArr[2],
+                    borderWidth: 2,
+                    shadowBlur: 20,
+                    shadowColor: colorArr[2],
+                    shadowOffsetx: 25,
+                    shadowOffsety: 20,
+                    color: colorAlpha[2]
+                  }
+                },
+
+                {
+                  value: echart1DataSum3,
+                  name: "机械行业历史总用电量",
+                  itemStyle: {
+                    borderColor: colorArr[5],
+                    borderWidth: 2,
+                    shadowBlur: 20,
+                    shadowColor: colorArr[5],
+                    shadowOffsetx: 25,
+                    shadowOffsety: 20,
+                    color: colorAlpha[5]
+                  }
+                }
+              ]
+            }
+          ]
+        });
+      });
     },
 
-    
     drawChart5() {
-      let echart5 = this.$echarts.init(
-        document.getElementById("echart5")
-      );
+      let echart5 = this.$echarts.init(document.getElementById("echart5"));
       var option = {};
       var t = this;
 
@@ -797,6 +994,45 @@ export default {
         series: seriesOption
       };
       echart5.setOption(option);
+
+      this.$axios.get("/findElectricityPastList").then(res => {
+        let electricityPastDataList = res.data.data.electricityPastDataList;
+        let pastElectricityList = res.data.data.pastElectricityList;
+        let resoutDataDateStr = [];
+
+        // 汽车数据列表
+        let echart1DataSum1 = 0;
+
+        //航空数据列表
+        let echart1DataSum2 = 0;
+
+        //机械数据列表
+
+        let echart1DataSum3 = 0;
+
+        console.log(res.data.data.electricityPastDataList);
+
+        pastElectricityList.forEach(element => {
+          console.log(element);
+          // var optionObject = {
+          //   name: element.electricityDateStr,
+          //   value: "" + element.electricityNum
+          // };
+
+          if (element.electricityName === "汽车") {
+            echart1DataSum1 += element.electricityNum;
+          } else if (element.electricityName === "航空") {
+            echart1DataSum2 += element.electricityNum;
+          } else {
+            echart1DataSum3 += element.electricityNum;
+          }
+        });
+
+        electricityPastDataList.forEach(element => {
+          console.log(element);
+          resoutDataDateStr.push(element.electricityDateStr);
+        });
+      });
     },
     drawChart4() {
       let echart4 = this.$echarts.init(document.getElementById("echart4"));
@@ -921,7 +1157,7 @@ export default {
       // option
       option = {
         title: {
-          text: "增量设备贯通情况-单位",
+          text: "行业历史用电量总和及增长率-单位",
           x: "center",
           y: 0,
           textStyle: {
@@ -943,7 +1179,7 @@ export default {
           }
         },
         legend: {
-          data: ["已贯通", "计划贯通", "贯通率"],
+          data: ["行业历史用电量总和", "行业用电量总和增长率"],
           textStyle: {
             color: "#B4B4B4"
           },
@@ -993,7 +1229,7 @@ export default {
 
         series: [
           {
-            name: "贯通率",
+            name: "行业用电量总和增长率",
             type: "line",
             smooth: true,
             showAllSymbol: true,
@@ -1009,7 +1245,7 @@ export default {
           },
 
           {
-            name: "已贯通",
+            name: "行业历史用电量总和",
             type: "bar",
             barWidth: 10,
             itemStyle: {
@@ -1022,30 +1258,66 @@ export default {
               }
             },
             data: barData
-          },
-
-          {
-            name: "计划贯通",
-            type: "bar",
-            barGap: "-100%",
-            barWidth: 10,
-            itemStyle: {
-              normal: {
-                barBorderRadius: 5,
-                color: new t.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  { offset: 0, color: "rgba(156,107,211,0.5)" },
-                  { offset: 0.2, color: "rgba(156,107,211,0.3)" },
-                  { offset: 1, color: "rgba(156,107,211,0)" }
-                ])
-              }
-            },
-            z: -12,
-
-            data: lineData
           }
+
+          // {
+          //   name: "计划贯通",
+          //   type: "bar",
+          //   barGap: "-100%",
+          //   barWidth: 10,
+          //   itemStyle: {
+          //     normal: {
+          //       barBorderRadius: 5,
+          //       color: new t.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          //         { offset: 0, color: "rgba(156,107,211,0.5)" },
+          //         { offset: 0.2, color: "rgba(156,107,211,0.3)" },
+          //         { offset: 1, color: "rgba(156,107,211,0)" }
+          //       ])
+          //     }
+          //   },
+          //   z: -12,
+
+          //   data: lineData
+          // }
         ]
       };
       echart4.setOption(option);
+
+      this.$axios.get("/findElectricityPastList").then(res => {
+        // 日期  
+        let electricityPastDataList = res.data.data.electricityPastDataList;
+        //数据和
+        let electricityPastNumSumByDate =
+          res.data.data.electricityPastNumSumByDate;
+
+        // 增长率
+          let numSumRate = [];
+          for(let i = 0;i < electricityPastNumSumByDate.length - 1;i ++){
+            numSumRate.push((electricityPastNumSumByDate[i+1] - electricityPastNumSumByDate[i])/electricityPastNumSumByDate[i]);
+          }
+
+          console.log(numSumRate);
+
+
+
+
+        echart4.setOption({
+          xAxis: {
+          data: electricityPastDataList,
+          
+          
+        },
+          series: [{
+            name: "行业用电量总和增长率",
+            data:numSumRate
+          },
+          {
+             name: "行业历史用电量总和",
+             data:electricityPastNumSumByDate
+          }
+          ]
+        });
+      });
     }
   }
 };
