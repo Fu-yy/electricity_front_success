@@ -62,17 +62,17 @@
       <li>
         <div class="boxall" style="height:3.4rem">
           <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart3">echart6</div>
+          <div class="allnav" id="echart3"></div>
           <div class="boxfoot"></div>
         </div>
         <div class="boxall" style="height: 3.2rem">
           <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart5">echart6</div>
+          <div class="allnav" id="echart5"></div>
           <div class="boxfoot"></div>
         </div>
         <div class="boxall" style="height: 3rem">
           <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart6">echart6</div>
+          <div class="allnav" id="echart6"></div>
           <div class="boxfoot"></div>
         </div>
       </li>
@@ -762,6 +762,14 @@ export default {
         ]
       };
       echart2.setOption(option);
+
+
+      t.$axios.get("/findAllElectricityRelated").then((result) => {
+        console.log(result);
+        
+      }).catch((err) => {
+        
+      });
     },
     drawChart3() {
       let echart3 = this.$echarts.init(document.getElementById("echart3"));

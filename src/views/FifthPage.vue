@@ -545,4 +545,5 @@ export default {
 
 <style scoped>
 @import "./../assets/css/comon0.css";
+
 </style>

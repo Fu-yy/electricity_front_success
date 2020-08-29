@@ -18,6 +18,13 @@ module.exports = {
                   '^/findElectricityPastListt': ''
                 }
             },
+      '/findAllElectricityRelated': {
+                target: 'http://202.118.26.114:8081',
+                changeOrigin: true,
+                pathRewrite: {
+                  '^/findAllElectricityRelated': ''
+                }
+            },
 
     },
 
