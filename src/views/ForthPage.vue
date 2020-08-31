@@ -191,6 +191,13 @@ export default {
       };
 
       echart1.setOption(option);
+
+       t.$axios.get("/findAllElectricityTimeSharing").then((result) => {
+        console.log(result);
+        
+      }).catch((err) => {
+        
+      });
     },
 
     drawChart2() {

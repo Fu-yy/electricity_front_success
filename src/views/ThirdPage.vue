@@ -249,6 +249,13 @@ export default {
         ]
       };
       echart1.setOption(option);
+
+      t.$axios.get("/findElectricityForecastList").then((result) => {
+        console.log(result);
+        
+      }).catch((err) => {
+        
+      });
     },
     drawChart2() {
       let echart2 = this.$echarts.init(
@@ -397,6 +404,8 @@ export default {
         ]
       };
       echart2.setOption(option);
+
+
     },
     drawChart3() {
       let echart3 = this.$echarts.init(

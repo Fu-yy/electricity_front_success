@@ -468,11 +468,17 @@ export default {
         ]
       };
       map_1.setOption(option);
+       t.$axios.get("/findAlElectricityDo").then((result) => {
+        console.log(result);
+        
+      }).catch((err) => {
+        
+      });
     }
   }
 };
 </script>
 
 <style scoped>
-@import "./../assets/css/comon0.css";
+  @import "./../assets/css/comon0.css";
 </style>

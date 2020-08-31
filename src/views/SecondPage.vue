@@ -19,7 +19,7 @@
             <div class="sy" id="fb3"></div>
           </div>
           <div class="boxfoot"></div>
-        </div> -->
+        </div>-->
       </li>
       <li>
         <div class="bar" style="margin-bottom:1rem">
@@ -100,13 +100,12 @@ export default {
     // this.drawChart4();
     // this.drawChart5();
     // this.drawChartMap1();
-     var that = this;
+    var that = this;
     window.onresize = function() {
       that.$echarts.init(document.getElementById("echart1")).resize();
       that.$echarts.init(document.getElementById("echart2")).resize();
       that.$echarts.init(document.getElementById("echart3")).resize();
       that.$echarts.init(document.getElementById("map_1")).resize();
-     
     };
   },
 
@@ -436,6 +435,13 @@ export default {
         ]
       };
       echart1.setOption(option);
+      t.$axios
+        .get("/findAllElectricityRelated")
+        .then(result => {
+          console.log(result);
+          console.log("dasdasd");
+        })
+        .catch(err => {});
     },
     drawChart2() {
       let echart2 = this.$echarts.init(document.getElementById("echart2"));
@@ -448,6 +454,18 @@ export default {
       let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
       let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
       let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      let dataD4 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      let dataD5 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+
+      // let dataC1 = [];
+      // let dataC2 = [];
+      // let dataC3 = [];
+      // let dataD1 = [];
+      // let dataD2 = [];
+      // let dataD3 = [];
+      // let dataD4 = [];
+      // let dataD5 = [];
+
       let xData = [
         "01:00",
         "03:00",
@@ -462,6 +480,40 @@ export default {
         "21:00",
         "23:00"
       ];
+      // let xData = [];
+
+      // t.$axios.get("/findAllElectricityRelated").then((result) => {
+      //   console.log(result);
+      //   console.log("dasdasd");
+      //   let dataTime = result.data.data.electricityRelatedServiceAllDate;
+      //   let dataResult = result.data.data.electricityRelatedServiceAllRelated;
+
+      //   xData = dataTime;
+
+      //     xData.forEach(dataTime=>{
+
+      //       dataResult.forEach(element => {
+      //       // console.log(element);
+      //       if(dataTime == element.electDateStr){
+
+      //         if(element.manufacts.owner == "机械制造业"){
+      //             if(element.manufacts.manuName == "文化、办公用机械制造"){
+      //                 dataC1.push({
+      //                     name:dataTime,
+      //                     value:element.energy
+      //                   });
+      //               }
+      //           }
+      //       }
+
+      //     });
+      //   });
+
+      // }).catch((err) => {
+
+      // });
+      // console.log(dataC1);
+      // console.log("dataC1");
 
       for (var i = 0; i < xData.length; i++) {
         dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
@@ -472,6 +524,7 @@ export default {
         dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
       }
       console.log(dataC1);
+      console.log("dataC1");
       console.log(dataC2);
       console.log(dataC3);
       console.log(dataD1);
@@ -763,13 +816,135 @@ export default {
       };
       echart2.setOption(option);
 
+      t.$axios
+        .get("/findAllElectricityRelated")
+        .then(result => {
+          console.log(result);
+          console.log("dasdasd");
+          let dataTime = result.data.data.electricityRelatedServiceAllDate;
+          let dataResult = result.data.data.electricityRelatedServiceAllRelated;
 
-      t.$axios.get("/findAllElectricityRelated").then((result) => {
-        console.log(result);
-        
-      }).catch((err) => {
-        
-      });
+          let listData1 = [];
+          let listData2 = [];
+          let listData3 = [];
+          let listData4 = [];
+          let listData5 = [];
+          let listData6 = [];
+          let listData7 = [];
+          let listData8 = [];
+
+          dataTime.forEach(time => {
+            dataResult.forEach(element => {
+              // console.log(element);
+              if (time == element.electDateStr) {
+                console.log(time);
+
+                if (element.manufacts.owner == "机械制造业") {
+                  if (element.manufacts.manuName == "文化、办公用机械制造") {
+                    // console.log(element.manufacts.manuName);
+                    listData1.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (element.manufacts.manuName == "特种陶瓷制品制造") {
+                    listData2.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (element.manufacts.manuName == "金属加工机械制造") {
+                    listData3.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName ==
+                    "泵、阀门、压缩机及类似机械制造"
+                  ) {
+                    listData4.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName == "电子和电工机械专用设备制造"
+                  ) {
+                    listData5.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName == "农、林、牧、渔专用机械制造"
+                  ) {
+                    listData6.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName == "其他电气机械及器材制造"
+                  ) {
+                    listData7.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else {
+                    listData8.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  }
+                }
+              }
+            });
+          });
+
+          console.log(listData1);
+
+          echart2.setOption({
+            legend: {
+              data: dataTime
+            },
+            series: [
+              {
+                name: "C1",
+                type: "line",
+                stack: "总量",
+                symbol: "circle",
+                showSymbol: false,
+                symbolSize: 8,
+                itemStyle: {
+                  normal: {
+                    color: "#0092f6",
+                    lineStyle: {
+                      color: "#0092f6",
+                      width: 1
+                    },
+                    areaStyle: {
+                      //color: '#94C9EC'
+                      color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                        {
+                          offset: 0.4,
+                          color: "rgba(7,44,90,0.1)"
+                        },
+                        {
+                          offset: 1,
+                          color: "rgba(0,146,246,0.9)"
+                        }
+                      ])
+                    }
+                  }
+                },
+                markPoint: {
+                  itemStyle: {
+                    normal: {
+                      color: "red"
+                    }
+                  }
+                },
+                data: dataC1
+              }
+            ]
+          });
+        })
+        .catch(err => {});
     },
     drawChart3() {
       let echart3 = this.$echarts.init(document.getElementById("echart3"));
@@ -1097,10 +1272,8 @@ export default {
       };
       echart3.setOption(option);
     },
-     drawChartMap1() {
-      let map_1 = this.$echarts.init(
-        document.getElementById("map_1")
-      );
+    drawChartMap1() {
+      let map_1 = this.$echarts.init(document.getElementById("map_1"));
       var option = {};
       var t = this;
 
@@ -1391,8 +1564,7 @@ export default {
         ]
       };
       map_1.setOption(option);
-    },
-
+    }
   }
 };
 </script>

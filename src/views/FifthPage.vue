@@ -319,6 +319,12 @@ export default {
         ]
       };
       echart1.setOption(option);
+       t.$axios.get("/findAllElectrElectricityTso").then((result) => {
+        console.log(result);
+        
+      }).catch((err) => {
+        
+      });
     },
 
     drawChartMap1() {
