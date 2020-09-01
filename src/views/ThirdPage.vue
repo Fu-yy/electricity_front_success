@@ -1,14 +1,23 @@
 <template>
   <div class="mainbox">
+    <div class="map1" style="left:36%;top:25%">
+      <img :src="lbx" />
+    </div>
+    <div class="map2" style="left:37.3%;top:27%">
+      <img :src="jt" />
+    </div>
+    <div class="map3" style="left:38.5%;top:30%">
+      <img :src="map" />
+    </div>
     <ul class="clearfix">
       <li>
-        <div class="boxall" style="height: 5.2rem">
-          <div class="alltitle">模2222式</div>
+        <div class="boxall" style="height: 7.2rem">
+          <div class="alltitle"></div>
           <div class="allnav" id="echart1"></div>
           <div class="boxfoot"></div>
         </div>
-        <div class="boxall" style="height: 4.2rem">
-          <div class="alltitle">模块标题样式</div>
+        <div class="boxall" style="height: 7.2rem">
+          <div class="alltitle"></div>
           <div class="allnav" id="echart2"></div>
           <div class="boxfoot"></div>
         </div>
@@ -19,19 +28,47 @@
             <div class="sy" id="fb3"></div>
           </div>
           <div class="boxfoot"></div>
-        </div> -->
+        </div>-->
       </li>
-      <li>
-        <div class="bar" style="margin-bottom:1rem">
+      <li style="height:14.5rem">
+        <div class="bar">
           <div class="barbox">
             <ul class="clearfix">
-              <li class="counter" style="width:100%;line-height: 2rem;">行业用电趋势预测</li>
+              <li class="counter" style="width:100%;line-height: 1rem;font-size:.4rem">行业用电趋势预测</li>
             </ul>
+          </div>
+
+          <div class="boxall" style="height: 5rem;top:0.3rem">
+            <div class="alltitle"></div>
+            <div class="allnav" id="echart2">
+              <div class="scollTitle" style="height:1rem">
+                <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
+                  <span class="title">时间</span>
+                </div>
+                <div class="nameTitle" style=" display:inline;margin-left:3rem">
+                  <span class="date">行业</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:3.5rem">
+                  <span class="date">用电量</span>
+                </div>
+              </div>
+
+              <vue-seamless-scroll :data="listData" class="seamless-warp">
+                <ul class="item">
+                  <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
+                    <span class="title" v-text="item.date" style="width:50px"></span>
+                    <span class="date" v-text="item.name" style="width:50px"></span>
+                    <span class="date" v-text="item.num" style="width:50px"></span>
+                  </li>
+                </ul>
+              </vue-seamless-scroll>
+            </div>
+            <div class="boxfoot"></div>
           </div>
         </div>
 
         <!-- 标题 -->
-        <div class="bar">
+        <!-- <div class="bar">
           <div class="barbox">
             <ul class="clearfix">
               <li class="pulll_left counter">12581189</li>
@@ -44,28 +81,18 @@
               <li class="pulll_left">2018年总支出情况</li>
             </ul>
           </div>
-        </div>
+        </div>-->
 
-        <div class="map">
-          <div class="map1">
-            <img :src="lbx" />
-          </div>
-          <div class="map2">
-            <img :src="jt" />
-          </div>
-          <div class="map3">
-            <img :src="map" />
-          </div>
-          <div class="map4" id="map_1"></div>
+        <div class="map" style="height:7.4rem">
+          <div class="map4" id="map_1" style="left:0%;top:4%;bottom:0;"></div>
         </div>
       </li>
       <li>
-        <div class="boxall" style="height:3.4rem">
-          <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart3">echart6</div>
+        <div class="boxall" style="height:7rem">
+          <div class="alltitle"></div>
+          <div class="allnav" id="echart3"></div>
           <div class="boxfoot"></div>
         </div>
-    
       </li>
     </ul>
   </div>
@@ -80,7 +107,93 @@ export default {
       lbx: require("./../assets/img/lbx.png"),
       jt: require("./../assets/img/jt.png"),
       map: require("./../assets/img/map.png"),
-      fontSize: document.documentElement.clientWidth
+      fontSize: document.documentElement.clientWidth,
+      listData: [
+        {
+          title: "无缝滚动第一行无缝滚动第一行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第二行无缝滚动第二行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第三行无缝滚动第三行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第四行无缝滚动第四行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第五行无缝滚动第五行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第六行无缝滚动第六行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第七行无缝滚动第七行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第八行无缝滚动第八行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        }
+      ]
     };
   },
   mounted() {
@@ -88,13 +201,12 @@ export default {
     this.drawChart2();
     this.drawChart3();
     this.drawChartMap1();
-     var that = this;
+    var that = this;
     window.onresize = function() {
       that.$echarts.init(document.getElementById("echart1")).resize();
       that.$echarts.init(document.getElementById("echart2")).resize();
       that.$echarts.init(document.getElementById("echart3")).resize();
       that.$echarts.init(document.getElementById("map_1")).resize();
-     
     };
     // this.drawChart4();
     // this.drawChart5();
@@ -103,9 +215,7 @@ export default {
 
   methods: {
     drawChart1() {
-      let echart1 = this.$echarts.init(
-        document.getElementById("echart1")
-      );
+      let echart1 = this.$echarts.init(document.getElementById("echart1"));
       var option = {};
       var t = this;
 
@@ -250,17 +360,15 @@ export default {
       };
       echart1.setOption(option);
 
-      t.$axios.get("/findElectricityForecastList").then((result) => {
-        console.log(result);
-        
-      }).catch((err) => {
-        
-      });
+      t.$axios
+        .get("/findElectricityForecastList")
+        .then(result => {
+          console.log(result);
+        })
+        .catch(err => {});
     },
     drawChart2() {
-      let echart2 = this.$echarts.init(
-        document.getElementById("echart2")
-      );
+      let echart2 = this.$echarts.init(document.getElementById("echart2"));
       var option = {};
       var t = this;
 
@@ -404,13 +512,9 @@ export default {
         ]
       };
       echart2.setOption(option);
-
-
     },
     drawChart3() {
-      let echart3 = this.$echarts.init(
-        document.getElementById("echart3")
-      );
+      let echart3 = this.$echarts.init(document.getElementById("echart3"));
       var option = {};
       var t = this;
 
@@ -555,83 +659,14 @@ export default {
       };
       echart3.setOption(option);
     },
-     drawChartMap1() {
-      let map_1 = this.$echarts.init(
-        document.getElementById("map_1")
-      );
+    drawChartMap1() {
+      let map_1 = this.$echarts.init(document.getElementById("map_1"));
       var t = this;
       var option = {};
 
-      //echarts折线图
+let dataList = [];
 
-      let dataList = [
-        {
-          name: "2020-06-10",
-          value: "150"
-        },
-        {
-          name: "2020-06-11",
-          value: "170"
-        },
-        {
-          name: "2020-06-12",
-          value: "210"
-        },
-        {
-          name: "2020-06-13",
-          value: "240"
-        },
-        {
-          name: "2020-06-14",
-          value: "320"
-        },
-        {
-          name: "2020-06-15",
-          value: "272"
-        },
-        {
-          name: "2020-06-16",
-          value: "220"
-        },
-        {
-          name: "2020-06-17",
-          value: "160"
-        }
-      ];
-      let dataList2 = [
-        {
-          name: "2020-06-10",
-          value: "240"
-        },
-        {
-          name: "2020-06-11",
-          value: "220"
-        },
-        {
-          name: "2020-06-12",
-          value: "185"
-        },
-        {
-          name: "2020-06-13",
-          value: "175"
-        },
-        {
-          name: "2020-06-14",
-          value: "220"
-        },
-        {
-          name: "2020-06-15",
-          value: "310"
-        },
-        {
-          name: "2020-06-16",
-          value: "222"
-        },
-        {
-          name: "2020-06-17",
-          value: "135"
-        }
-      ];
+      let dataList2 = [];
 
       option = {
         backgroundColor: "",
@@ -639,13 +674,13 @@ export default {
           trigger: "axis"
         },
         legend: {
-          data: ["摸鱼时长", "学习时长"],
+          data: ["汽车", "航空", "机械"],
           textStyle: {
             color: "#fff"
           }
         },
         title: {
-          text: "三大行业用电趋势预测",
+          text: "行业历史用电量对比",
           left: 26,
           top: 26,
           textStyle: {
@@ -686,19 +721,10 @@ export default {
             show: true,
             textStyle: {
               color: "#cecece",
-              fontSize: "14"
+              fontSize: "10"
             }
           },
-          data: [
-            "2020-06-10",
-            "2020-06-11",
-            "2020-06-12",
-            "2020-06-13",
-            "2020-06-14",
-            "2020-06-15",
-            "2020-06-16",
-            "2020-06-17"
-          ]
+          data: ["2020-08-23", "2222-08-24", "2020-08-25"]
         },
         yAxis: [
           {
@@ -729,20 +755,22 @@ export default {
         ],
         series: [
           {
-            name: "摸鱼时长",
+            name: "汽车",
             type: "line",
             smooth: true, //是否平滑曲线显示
             showSymbol: false,
-            markPoint: {
-              data: [
-                {
-                  name: "周最高",
-                  value: 320,
-                  xAxis: 4,
-                  yAxis: 320
-                }
-              ]
-            },
+
+            // 最大值
+            // markPoint: {
+            //   data: [
+            //     {
+            //       name: "周最高",
+            //       value: 320,
+            //       xAxis: 4,
+            //       yAxis: 320
+            //     }
+            //   ]
+            // },
             itemStyle: {
               color: "#3eb5dd",
               borderColor: "#f1f1f1",
@@ -802,7 +830,7 @@ export default {
             data: dataList
           },
           {
-            name: "学习时长",
+            name: "航空",
             type: "line",
             smooth: true, //是否平滑曲线显示
             showSymbol: false,
@@ -811,9 +839,12 @@ export default {
               borderColor: "#f1f1f1",
               borderWidth: 1
             },
-            markPoint: {
-              data: [{ name: "周最高", value: 310, xAxis: 5, yAxis: 310 }]
-            },
+
+            //        最大值
+
+            // markPoint: {
+            //   data: [{ name: "用电量最高", value: 310, xAxis: 5, yAxis: 310 }]
+            // },
             lineStyle: {
               normal: {
                 width: 4,
@@ -866,17 +897,159 @@ export default {
               }
             },
             data: dataList2
+          },
+          {
+            name: "机械",
+            type: "line",
+            smooth: true, //是否平滑曲线显示
+            showSymbol: false,
+            itemStyle: {
+              color: "#feb64d",
+              borderColor: "#f1f1f1",
+              borderWidth: 1
+            },
+            // markPoint: {
+            //   data: [{ name: "用电量最高", value: 310, xAxis: 5, yAxis: 310 }]
+            // },
+            lineStyle: {
+              normal: {
+                width: 4,
+                color: {
+                  type: "linear",
+
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#fed207" // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "#feb64d" // 100% 处的颜色
+                    }
+                  ],
+                  globalCoord: false // 缺省为 false
+                },
+                shadowColor: "rgba(254,182,77, 0.5)",
+                shadowBlur: 12,
+                shadowOffsetY: 5
+              }
+            },
+            areaStyle: {
+              //区域填充样式
+              normal: {
+                color: new t.$echarts.graphic.LinearGradient(
+                  0,
+                  0,
+                  0,
+                  1,
+                  [
+                    {
+                      offset: 0,
+                      color: "rgba(254,182,77, 0.6)"
+                    },
+                    {
+                      offset: 0.6,
+                      color: "rgba(254,182,77, 0.2)"
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(254,182,77, 0.01)"
+                    }
+                  ],
+                  false
+                ),
+                shadowColor: "rgba(254,182,77, 0.4)",
+                shadowBlur: 6
+              }
+            },
+            data: null
           }
         ]
       };
 
       map_1.setOption(option);
-    },
 
+      this.$axios.get("/findElectricityForecastList").then(res => {
+
+        let electricityForecastDataList = res.data.data.electricityForecastDataList;
+        let electricityForecastList = res.data.data.electricityForecastList;
+        let resoutDataDateStr = [];
+
+        // 汽车数据列表
+        let echart1DataList1 = [];
+        //航空数据列表
+        let echart1DataList2 = [];
+        //机械数据列表
+
+        let echart1DataList3 = [];
+        console.log(electricityForecastDataList);
+        console.log("res.data.data.electricityForecastDataList");
+
+        electricityForecastList.forEach(element => {
+          console.log("sdasda");
+          console.log(element);
+          var optionObject = {
+            name: element.forecastDateStr,
+            value: "" + element.forecastNum
+          };
+
+          if (element.forecastName === "汽车") {
+            echart1DataList1.push(optionObject);
+          } else if (element.forecastName === "航空") {
+            echart1DataList2.push(optionObject);
+          } else {
+            echart1DataList3.push(optionObject);
+          }
+        });
+        // electricityPastDataList.forEach(element => {
+        //   console.log(element);
+        //   resoutDataDateStr.push(element.electricityDateStr);
+        // });
+
+        console.log("ecccccccc1************");
+        console.log(echart1DataList1);
+        console.log(echart1DataList2);
+        console.log(echart1DataList3);
+
+        console.log("ecccccccc1************");
+
+        map_1.setOption({
+          xAxis: {
+            data: electricityForecastDataList
+          },
+          series: [
+            {
+              name: "汽车",
+              data: echart1DataList1
+            },
+            {
+              name: "航空",
+              data: echart1DataList2
+            },
+            {
+              name: "机械",
+              data: echart1DataList3
+            }
+          ]
+        });
+      });
+    }
   }
 };
 </script>
 
 <style scoped>
 @import "./../assets/css/comon0.css";
+.seamless-warp {
+  height: 3.7rem;
+  overflow: hidden;
+}
+.title {
+  color: cadetblue;
+  font-size: 0.3rem;
+}
+.date {
+  color: cadetblue;
+  font-size: 0.3rem;
+}
 </style>

@@ -1,50 +1,45 @@
 <template>
   <div class="mainbox">
+
+        <div class="map1" style="left:36%;top:25%">
+              <img :src="lbx" />
+          </div>
+          <div class="map2" style="left:37.3%;top:27%">
+            <img :src="jt" />
+          </div>
+          <div class="map3" style="left:38.5%;top:30%">
+            <img :src="map" />
+          </div>
     <ul class="clearfix">
       <li>
-        <div class="boxall" style="height: 5.2rem">
-          <div class="alltitle">表格</div>
-          <div class="allnav tableClass" id="echart1" style>
-            <!-- <table border="1" style="FILTER:   alpha(opacity=40);width:100%;heigh:80%">
-             
-            </table> -->
-            <div style="width:800px">
-                   <div class="table-head">
-     <table>
-         <colgroup>
-             <col style="width: 80px;" />
-             <col />
-         </colgroup>
-         <thead>
-             <tr><th>序号</th><th>内容</th></tr>
-         </thead>
-     </table>
-     </div>
-     <div class="table-body">
-     <table>
-         <colgroup><col style="width: 80px;" /><col /></colgroup>
-         <tbody>
-             <tr><td>1</td><td>我只是用来测试的</td></tr>
-             <tr><td>2</td><td>我只是用来测试的</td></tr>
-             <tr><td>3</td><td>我只是用来测试的</td></tr>
-             <tr><td>4</td><td>我只是用来测试的</td></tr>
-             <tr><td>5</td><td>我只是用来测试的</td></tr>
-             <tr><td>6</td><td>我只是用来测试的</td></tr>
-             <tr><td>7</td><td>我只是用来测试的</td></tr>
-             <tr><td>8</td><td>我只是用来测试的</td></tr>
-             <tr><td>9</td><td>我只是用来测试的</td></tr>
-             <tr><td>10</td><td>我只是用来测试的</td></tr>
-             <tr><td>11</td><td>我只是用来测试的</td></tr>
-             <tr><td>12</td><td>我只是用来测试的</td></tr>
-             <tr><td>13</td><td>我只是用来测试的</td></tr>
-             <tr><td>14</td><td>我只是用来测试的</td></tr>
-             <tr><td>15</td><td>我只是用来测试的</td></tr>
-         </tbody>
-     </table>
-   
- </div>
+        <div class="boxall" style="height: 7.2rem">
+         
+         <div class="alltitle">
+            
+            <div class="allnav">
+              <div class="scollTitle" style="height:1rem">
+                <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
+                  <span class="title">时间</span>
+                </div>
+                <div class="nameTitle" style=" display:inline;margin-left:3rem">
+                  <span class="date">行业</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:3.5rem">
+                  <span class="date">用电量</span>
+                </div>
+              </div>
 
+              <vue-seamless-scroll :data="listData" class="seamless-warp">
+                <ul class="item">
+                  <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
+                    <span class="title" v-text="item.date" style="width:50px"></span>
+                    <span class="date" v-text="item.name" style="width:50px"></span>
+                    <span class="date" v-text="item.num" style="width:50px"></span>
+                  </li>
+                </ul>
+              </vue-seamless-scroll>
             </div>
+
           </div>
           <div class="boxfoot"></div>
         </div>
@@ -66,7 +61,7 @@
         <div class="bar" style="margin-bottom:1rem">
           <div class="barbox">
             <ul class="clearfix">
-              <li class="counter" style="width:100%;line-height: 2rem;">需求侧用电量优化</li>
+              <li class="counter" style="width:100%;line-height: 1rem;font-size:.4rem">需求侧用电量优化</li>
             </ul>
           </div>
         </div>
@@ -87,21 +82,13 @@
           </div>
         </div>
 
-        <div class="map">
-          <div class="map1">
-            <img :src="lbx" />
-          </div>
-          <div class="map2">
-            <img :src="jt" />
-          </div>
-          <div class="map3">
-            <img :src="map" />
-          </div>
-          <div class="map4" id="map_1"></div>
+        <div class="map" style="height:10.4rem">
+       
+          <div class="map4" id="map_1" style="top:20%;bottom:0;"></div>
         </div>
       </li>
       <li>
-        <div class="boxall" style="height:3.4rem">
+        <div class="boxall" style="height:6rem">
           <div class="alltitle">表格</div>
           <div class="allnav" id="echart3"></div>
           <div class="boxfoot"></div>
@@ -131,22 +118,90 @@ export default {
       jt: require("./../assets/img/jt.png"),
       map: require("./../assets/img/map.png"),
       fontSize: document.documentElement.clientWidth,
-      tableData: [
+      listData: [
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          province: "上海",
-          city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
-          zip: 200333
+          title: "无缝滚动第一行无缝滚动第一行",
+          date: "2017-12-16"
         },
         {
-          date: "2016-05-02",
-          name: "王小虎",
-          province: "上海",
-          city: "普陀区",
-          address: "上海市普陀区金沙江路 1518 弄",
-          zip: 200333
+          title: "无缝滚动第二行无缝滚动第二行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第三行无缝滚动第三行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第四行无缝滚动第四行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第五行无缝滚动第五行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第六行无缝滚动第六行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第七行无缝滚动第七行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第八行无缝滚动第八行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
         }
       ]
     };
@@ -481,4 +536,17 @@ export default {
 
 <style scoped>
   @import "./../assets/css/comon0.css";
+
+  .seamless-warp {
+  height: 3.7rem;
+  overflow: hidden;
+}
+.title {
+  color: cadetblue;
+  font-size: 0.3rem;
+}
+.date {
+  color: cadetblue;
+  font-size: 0.3rem;
+}
 </style>

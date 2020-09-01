@@ -1,13 +1,24 @@
 <template>
   <div class="mainbox">
+        <div class="map1" style="left:36%;top:25%">
+              <img :src="lbx" />
+          </div>
+          <div class="map2" style="left:37.3%;top:27%">
+            <img :src="jt" />
+          </div>
+          <div class="map3" style="left:38.5%;top:30%">
+            <img :src="map" />
+          </div>
+
+
     <ul class="clearfix">
       <li>
-        <div class="boxall" style="height: 5.2rem">
+        <div class="boxall" style="height: 7.2rem">
           <div class="alltitle">模2222式</div>
           <div class="allnav" id="echart1"></div>
           <div class="boxfoot"></div>
         </div>
-        <div class="boxall" style="height: 4.2rem">
+        <div class="boxall" style="height: 7.2rem">
           <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart2"></div>
           <div class="boxfoot"></div>
@@ -22,16 +33,49 @@
         </div> -->
       </li>
       <li>
-        <div class="bar" style="margin-bottom:1rem">
+        <div class="bar" >
           <div class="barbox">
             <ul class="clearfix">
-              <li class="counter" style="width:100%;line-height: 2rem;">峰谷平电价和行业分时电价</li>
+              <li class="counter" style="width:100%;line-height: 1rem;font-size:.4rem">峰谷平电价和行业分时电价</li>
             </ul>
           </div>
+
+
+ <!-- 滚动窗口 -->
+          <div class="boxall" style="height: 5rem;top:0.3rem">
+            <div class="alltitle"></div>
+            <div class="allnav" id="echart2">
+              <div class="scollTitle" style="height:1rem">
+                <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
+                  <span class="title">时间</span>
+                </div>
+                <div class="nameTitle" style=" display:inline;margin-left:3rem">
+                  <span class="date">行业</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:3.5rem">
+                  <span class="date">用电量</span>
+                </div>
+              </div>
+
+              <vue-seamless-scroll :data="listData" class="seamless-warp">
+                <ul class="item">
+                  <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
+                    <span class="title" v-text="item.date" style="width:50px"></span>
+                    <span class="date" v-text="item.name" style="width:50px"></span>
+                    <span class="date" v-text="item.num" style="width:50px"></span>
+                  </li>
+                </ul>
+              </vue-seamless-scroll>
+            </div>
+            <div class="boxfoot"></div>
+          </div>
+
+
+
         </div>
 
         <!-- 标题 -->
-        <div class="bar">
+        <!-- <div class="bar">
           <div class="barbox">
             <ul class="clearfix">
               <li class="pulll_left counter">12581189</li>
@@ -44,19 +88,11 @@
               <li class="pulll_left">2018年总支出情况</li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
-        <div class="map">
-          <div class="map1">
-            <img :src="lbx" />
-          </div>
-          <div class="map2">
-            <img :src="jt" />
-          </div>
-          <div class="map3">
-            <img :src="map" />
-          </div>
-          <div class="map4" id="map_1"></div>
+        <div class="map" style="height:7.4rem">
+      
+          <div class="map4" id="map_1" style="left:0%;top:4%;bottom:0;"></div>
         </div>
       </li>
       <li>
@@ -89,7 +125,93 @@ export default {
       lbx: require("./../assets/img/lbx.png"),
       jt: require("./../assets/img/jt.png"),
       map: require("./../assets/img/map.png"),
-      fontSize: document.documentElement.clientWidth
+      fontSize: document.documentElement.clientWidth,
+      listData: [
+        {
+          title: "无缝滚动第一行无缝滚动第一行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第二行无缝滚动第二行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第三行无缝滚动第三行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第四行无缝滚动第四行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第五行无缝滚动第五行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第六行无缝滚动第六行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第七行无缝滚动第七行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第八行无缝滚动第八行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        }
+      ]
     };
   },
   mounted() {
@@ -466,7 +588,7 @@ export default {
       })();
 
       option = {
-        backgroundColor: "RGBA(7, 28, 51, 1)",
+        backgroundColor: "",
         legend: {
           data: ["岗前培训", "安全例会", "技术培训", "教育约谈", "其它"],
           left: "15%",
@@ -498,7 +620,9 @@ export default {
         calculable: true,
         xAxis: [
           {
+            
             type: "category",
+
             axisLine: {
               lineStyle: {
                 color: "rgba(255,255,255,.5)"
@@ -807,4 +931,17 @@ export default {
 
 <style scoped>
 @import "./../assets/css/comon0.css";
+.seamless-warp {
+  height: 3.7rem;
+  overflow: hidden;
+}
+.title {
+	color: cadetblue;
+	font-size: 0.3rem;
+  }
+  .date {
+	color: cadetblue;
+	font-size: 0.3rem;
+  }
+
 </style>

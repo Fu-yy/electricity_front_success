@@ -1,5 +1,14 @@
 <template>
   <div class="mainbox">
+        <div class="map1" style="left:36%;top:25%">
+              <img :src="lbx" />
+          </div>
+          <div class="map2" style="left:37.3%;top:27%">
+            <img :src="jt" />
+          </div>
+          <div class="map3" style="left:38.5%;top:30%">
+            <img :src="map" />
+          </div>
     <ul class="clearfix">
       <li>
         <div class="boxall" style="height: 7.4rem">
@@ -37,15 +46,7 @@
         </div>
 
         <div class="map">
-          <div class="map1">
-            <img :src="lbx" />
-          </div>
-          <div class="map2">
-            <img :src="jt" />
-          </div>
-          <div class="map3">
-            <img :src="map" />
-          </div>
+
           <div class="map4" id="map_1"></div>
         </div>
       </li>

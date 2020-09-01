@@ -1,71 +1,87 @@
 <template>
   <div class="mainbox">
+    <div class="map1" style="left:36%;top:25%">
+      <img :src="lbx" />
+    </div>
+    <div class="map2" style="left:37.3%;top:27%">
+      <img :src="jt" />
+    </div>
+    <div class="map3" style="left:38.5%;top:30%">
+      <img :src="map" />
+    </div>
+
     <ul class="clearfix">
       <li>
-        <div class="boxall" style="height: 5.2rem">
-          <div class="alltitle">模2222式</div>
+        <div class="boxall" style="height: 8.2rem">
+          <div class="alltitle"></div>
           <div class="allnav" id="echart1"></div>
           <div class="boxfoot"></div>
         </div>
-        <div class="boxall" style="height: 4.2rem">
-          <div class="alltitle">模块标题样式</div>
+        <div class="boxall" style="height: 6.2rem">
+          <div class="alltitle"></div>
           <div class="allnav" id="echart2"></div>
           <div class="boxfoot"></div>
         </div>
-        <!-- <div class="boxall" style="height: 5rem">
-          <div style="height:100%; width: 100%;">
-            <div class="sy" id="fb1"></div>
-            <div class="sy" id="fb2"></div>
-            <div class="sy" id="fb3"></div>
-          </div>
-          <div class="boxfoot"></div>
-        </div>-->
       </li>
-      <li>
-        <div class="bar" style="margin-bottom:1rem">
+      <li style="height:14.5rem">
+        <div class="bar" style>
           <div class="barbox">
             <ul class="clearfix">
-              <li class="counter" style="width:100%;line-height: 2rem;">行业用电量关联性分析</li>
+              <li class="counter" style="width:100%;line-height: 1rem;font-size:.4rem">行业用电量关联性分析</li>
             </ul>
+          </div>
+
+          <!-- 滚动窗口 -->
+          <div class="boxall" style="height: 5rem;top:0.3rem">
+            <div class="alltitle"></div>
+            <div class="allnav" id="echart2">
+              <div class="scollTitle" style="height:1rem">
+                <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
+                  <span class="title">时间</span>
+                </div>
+                <div class="nameTitle" style=" display:inline;margin-left:3rem">
+                  <span class="date">行业</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:3.5rem">
+                  <span class="date">用电量</span>
+                </div>
+              </div>
+
+              <vue-seamless-scroll :data="listData" class="seamless-warp">
+                <ul class="item">
+                  <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
+                    <span class="title" v-text="item.date" style="width:50px"></span>
+                    <span class="date" v-text="item.name" style="width:50px"></span>
+                    <span class="date" v-text="item.num" style="width:50px"></span>
+                  </li>
+                </ul>
+              </vue-seamless-scroll>
+            </div>
+            <div class="boxfoot"></div>
           </div>
         </div>
 
         <!-- 标题 -->
-        <div class="bar">
+        <!-- <div class="bar">
           <div class="barbox">
             <ul class="clearfix">
-              <li class="pulll_left counter">12581189</li>
-              <li class="pulll_left counter">3912410</li>
+              <div style="height:3.3rem"> 滚屏</div>
             </ul>
           </div>
-          <div class="barbox2">
-            <ul class="clearfix">
-              <li class="pulll_left">2018年总收入情况</li>
-              <li class="pulll_left">2018年总支出情况</li>
-            </ul>
-          </div>
-        </div>
+        </div>-->
 
-        <div class="map">
-          <div class="map1">
-            <img :src="lbx" />
-          </div>
-          <div class="map2">
-            <img :src="jt" />
-          </div>
-          <div class="map3">
-            <img :src="map" />
-          </div>
-          <div class="map4" id="map_1"></div>
+        <div class="map" style="height:7.4rem">
+          <div class="map4" id="map_1" style="left:0%;top:4%;bottom:0;"></div>
+          <!-- <div class="map4" id="map_2" style="top:4%;bottom:0;width:20%">aaaaa</div> -->
         </div>
       </li>
       <li>
-        <div class="boxall" style="height:3.4rem">
-          <div class="alltitle">模块标题样式</div>
+        <div class="boxall" style="height:7rem">
+          <div class="alltitle"></div>
           <div class="allnav" id="echart3"></div>
           <div class="boxfoot"></div>
         </div>
-        <div class="boxall" style="height: 3.2rem">
+        <!-- <div class="boxall" style="height: 3.2rem">
           <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart5"></div>
           <div class="boxfoot"></div>
@@ -74,7 +90,7 @@
           <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart6"></div>
           <div class="boxfoot"></div>
-        </div>
+        </div>-->
       </li>
     </ul>
   </div>
@@ -89,7 +105,93 @@ export default {
       lbx: require("./../assets/img/lbx.png"),
       jt: require("./../assets/img/jt.png"),
       map: require("./../assets/img/map.png"),
-      fontSize: document.documentElement.clientWidth
+      fontSize: document.documentElement.clientWidth,
+      listData: [
+        {
+          title: "无缝滚动第一行无缝滚动第一行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第二行无缝滚动第二行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第三行无缝滚动第三行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第四行无缝滚动第四行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第五行无缝滚动第五行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第六行无缝滚动第六行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第七行无缝滚动第七行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第八行无缝滚动第八行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        },
+        {
+          title: "无缝滚动第九行无缝滚动第九行",
+          date: "2017-12-16"
+        }
+      ]
     };
   },
   mounted() {
@@ -115,371 +217,25 @@ export default {
       var option = {};
       var t = this;
 
-      let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
-      let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
-      let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-      let xData = [
-        "01:00",
-        "03:00",
-        "05:00",
-        "07:00",
-        "09:00",
-        "11:00",
-        "13:00",
-        "15:00",
-        "17:00",
-        "19:00",
-        "21:00",
-        "23:00"
-      ];
+      // let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
+      // let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
+      // let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      // let dataD4 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      // let dataD5 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
 
-      for (var i = 0; i < xData.length; i++) {
-        dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
-        dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
-        dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
-        dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
-        dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
-        dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
-      }
-      console.log(dataC1);
-      console.log(dataC2);
-      console.log(dataC3);
-      console.log(dataD1);
-      console.log(dataD2);
-      console.log(dataD3);
+      let dataC1 = [];
+      let dataC2 = [];
+      let dataC3 = [];
+      let dataD1 = [];
+      let dataD2 = [];
+      let dataD3 = [];
+      let dataD4 = [];
+      let dataD5 = [];
 
-      var fontColor = "#30eee9";
-      option = {
-        backgroundColor: "",
-        grid: {
-          left: "5%",
-          right: "2%",
-          top: "10%",
-          bottom: "15%",
-          containLabel: true
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-            lineStyle: {
-              color: "#57617B"
-            }
-          }
-        },
-        legend: {
-          data: ["C1", "C2", "C3", "D1", "D2", "D3"],
-          itemWidth: 20,
-          itemHeight: 10,
-          textStyle: {
-            fontSize: 14,
-            color: "#65aaf1"
-          },
-          right: "35%", //距离右侧
-          top: "5%"
-          // left : '50%'
-        },
-        xAxis: [
-          {
-            type: "category",
-            boundaryGap: false,
-            axisLabel: {
-              color: "#65aaf1"
-            },
-            axisLine: {
-              show: true,
-              lineStyle: {
-                color: "#0a2b52",
-                width: 1
-              }
-            },
-            /*axisTick:{
-	            	show:false,
-	            },  
-	            splitLine:{
-	            	show:true,
-		            lineStyle:{
-		            	color:'#195384'
-		            }
-		        },*/
-            data: xData
-          }
-        ],
-        yAxis: [
-          {
-            type: "value",
-            // name: 'kw/h',
-            nameTextStyle: {
-              color: "#65aaf1",
-              fontStyle: "normal"
-            },
-            axisLabel: {
-              formatter: "{value}",
-              textStyle: {
-                color: "#65aaf1"
-              }
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#0a2b52"
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: "#0a2b52",
-                width: 1,
-                type: "solid"
-              }
-            }
-          }
-        ],
-        series: [
-          {
-            name: "C1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#0092f6",
-                lineStyle: {
-                  color: "#0092f6",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,146,246,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            markPoint: {
-              itemStyle: {
-                normal: {
-                  color: "red"
-                }
-              }
-            },
-            data: dataC1
-          },
-          {
-            name: "C2",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-
-            itemStyle: {
-              normal: {
-                color: "#00d4c7",
-                lineStyle: {
-                  color: "#00d4c7",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataC2
-          },
-          {
-            name: "C3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(114,144,89,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataC3
-          },
-          {
-            name: "D1",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#3A44FB",
-                lineStyle: {
-                  color: "#3A44FB",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,46,101,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,166,246,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD1
-          },
-          {
-            name: "D2",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            symbolSize: 8,
-            showSymbol: false,
-            itemStyle: {
-              normal: {
-                color: "#6FE81A",
-                lineStyle: {
-                  color: "#6FE81A",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD2
-          },
-          {
-            name: "D3",
-            type: "line",
-            stack: "总量",
-            symbol: "circle",
-            showSymbol: false,
-            symbolSize: 8,
-            itemStyle: {
-              normal: {
-                color: "#aecb56",
-                lineStyle: {
-                  color: "#aecb56",
-                  width: 1
-                },
-                areaStyle: {
-                  //color: '#94C9EC'
-                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                    {
-                      offset: 0.4,
-                      color: "rgba(7,44,90,0.1)"
-                    },
-                    {
-                      offset: 1,
-                      color: "rgba(0,212,199,0.9)"
-                    }
-                  ])
-                }
-              }
-            },
-            data: dataD3
-          }
-        ]
-      };
-      echart1.setOption(option);
-      t.$axios
-        .get("/findAllElectricityRelated")
-        .then(result => {
-          console.log(result);
-          console.log("dasdasd");
-        })
-        .catch(err => {});
-    },
-    drawChart2() {
-      let echart2 = this.$echarts.init(document.getElementById("echart2"));
-      var option = {};
-      var t = this;
-
-      let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
-      let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
-      let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-      let dataD4 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-      let dataD5 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-
-      // let dataC1 = [];
-      // let dataC2 = [];
-      // let dataC3 = [];
-      // let dataD1 = [];
-      // let dataD2 = [];
-      // let dataD3 = [];
-      // let dataD4 = [];
-      // let dataD5 = [];
-
-      let xData = [
-        "01:00",
-        "03:00",
-        "05:00",
-        "07:00",
-        "09:00",
-        "11:00",
-        "13:00",
-        "15:00",
-        "17:00",
-        "19:00",
-        "21:00",
-        "23:00"
-      ];
+      let xData = [];
       // let xData = [];
 
       // t.$axios.get("/findAllElectricityRelated").then((result) => {
@@ -515,30 +271,42 @@ export default {
       // console.log(dataC1);
       // console.log("dataC1");
 
-      for (var i = 0; i < xData.length; i++) {
-        dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
-        dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
-        dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
-        dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
-        dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
-        dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
-      }
-      console.log(dataC1);
-      console.log("dataC1");
-      console.log(dataC2);
-      console.log(dataC3);
-      console.log(dataD1);
-      console.log(dataD2);
-      console.log(dataD3);
+      // for (var i = 0; i < xData.length; i++) {
+      //   dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
+      //   dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
+      //   dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
+      //   dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
+      //   dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
+      //   dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
+      // }
+      // console.log(dataC1);
+      // console.log("dataC1");
+      // console.log(dataC2);
+      // console.log(dataC3);
+      // console.log(dataD1);
+      // console.log(dataD2);
+      // console.log(dataD3);
 
       var fontColor = "#30eee9";
       option = {
         backgroundColor: "",
+        title: {
+          show: true, //显示策略，默认值true,可选为：true（显示） | false（隐藏）
+          text: "机械制造业", //主标题文本，'\n'指定换行
+          textStyle: { fontSize: 18, fontWeight: "bolder", color: "#fff" },
+          // fontFamily: 'Arial, Verdana, sans...',
+          // fontSize: 12,
+          // fontStyle: 'normal',
+          // fontWeight: 'normal',
+          // fontColor: '#fff'
+
+          x: "center"
+        },
         grid: {
           left: "5%",
           right: "2%",
-          top: "10%",
-          bottom: "15%",
+          top: "30%",
+          bottom: "0%",
           containLabel: true
         },
         tooltip: {
@@ -551,15 +319,24 @@ export default {
           }
         },
         legend: {
-          data: ["C1", "C2", "C3", "D1", "D2", "D3"],
-          itemWidth: 20,
+          data: [
+            "文化、办公用机械制造",
+            "特种陶瓷制品制造",
+            "金属加工机械制造",
+            "泵、阀门、压缩机及类似机械制造",
+            "电子和电工机械专用设备制造",
+            "农、林、牧、渔专用机械制造",
+            "其他电气机械及器材制造",
+            "增材制造装备制造"
+          ],
+          itemWidth: 15,
           itemHeight: 10,
           textStyle: {
             fontSize: 14,
             color: "#65aaf1"
           },
-          right: "35%", //距离右侧
-          top: "5%"
+          right: "0%", //距离右侧
+          top: "10%"
           // left : '50%'
         },
         xAxis: [
@@ -619,7 +396,7 @@ export default {
         ],
         series: [
           {
-            name: "C1",
+            name: "文化、办公用机械制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -654,10 +431,10 @@ export default {
                 }
               }
             },
-            data: dataC1
+            data: null
           },
           {
-            name: "C2",
+            name: "特种陶瓷制品制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -686,10 +463,10 @@ export default {
                 }
               }
             },
-            data: dataC2
+            data: null
           },
           {
-            name: "C3",
+            name: "金属加工机械制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -717,10 +494,10 @@ export default {
                 }
               }
             },
-            data: dataC3
+            data: null
           },
           {
-            name: "D1",
+            name: "泵、阀门、压缩机及类似机械制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -748,10 +525,10 @@ export default {
                 }
               }
             },
-            data: dataD1
+            data: null
           },
           {
-            name: "D2",
+            name: "电子和电工机械专用设备制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -779,10 +556,10 @@ export default {
                 }
               }
             },
-            data: dataD2
+            data: null
           },
           {
-            name: "D3",
+            name: "农、林、牧、渔专用机械制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -810,11 +587,73 @@ export default {
                 }
               }
             },
-            data: dataD3
+            data: null
+          },
+          {
+            name: "其他电气机械及器材制造",
+            type: "line",
+            stack: "总量",
+            symbol: "circle",
+            showSymbol: false,
+            symbolSize: 8,
+            itemStyle: {
+              normal: {
+                color: "#b81b83",
+                lineStyle: {
+                  color: "#b81b83",
+                  width: 1
+                },
+                areaStyle: {
+                  //color: '#94C9EC'
+                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0.4,
+                      color: "rgba(7,44,90,0.1)"
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(0,212,199,0.9)"
+                    }
+                  ])
+                }
+              }
+            },
+            data: null
+          },
+          {
+            name: "增材制造装备制造",
+            type: "line",
+            stack: "总量",
+            symbol: "circle",
+            showSymbol: false,
+            symbolSize: 8,
+            itemStyle: {
+              normal: {
+                color: "#702aaa",
+                lineStyle: {
+                  color: "#702aaa",
+                  width: 1
+                },
+                areaStyle: {
+                  //color: '#94C9EC'
+                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0.4,
+                      color: "rgba(7,44,90,0.1)"
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(0,212,199,0.9)"
+                    }
+                  ])
+                }
+              }
+            },
+            data: null
           }
         ]
       };
-      echart2.setOption(option);
+      echart1.setOption(option);
 
       t.$axios
         .get("/findAllElectricityRelated")
@@ -897,49 +736,55 @@ export default {
           });
 
           console.log(listData1);
+          console.log(dataTime);
+          console.log("dataTime");
 
-          echart2.setOption({
-            legend: {
-              data: dataTime
-            },
+          echart1.setOption({
+            xAxis: [
+              {
+                data: dataTime
+              }
+            ],
             series: [
               {
-                name: "C1",
-                type: "line",
-                stack: "总量",
-                symbol: "circle",
-                showSymbol: false,
-                symbolSize: 8,
-                itemStyle: {
-                  normal: {
-                    color: "#0092f6",
-                    lineStyle: {
-                      color: "#0092f6",
-                      width: 1
-                    },
-                    areaStyle: {
-                      //color: '#94C9EC'
-                      color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                        {
-                          offset: 0.4,
-                          color: "rgba(7,44,90,0.1)"
-                        },
-                        {
-                          offset: 1,
-                          color: "rgba(0,146,246,0.9)"
-                        }
-                      ])
-                    }
-                  }
-                },
-                markPoint: {
-                  itemStyle: {
-                    normal: {
-                      color: "red"
-                    }
-                  }
-                },
-                data: dataC1
+                name: "文化、办公用机械制造",
+
+                data: listData1
+              },
+              {
+                name: "特种陶瓷制品制造",
+
+                data: listData2
+              },
+              {
+                name: "金属加工机械制造",
+
+                data: listData3
+              },
+              {
+                name: "泵、阀门、压缩机及类似机械制造",
+
+                data: listData4
+              },
+              {
+                name: "电子和电工机械专用设备制造",
+
+                data: listData5
+              },
+              {
+                name: "农、林、牧、渔专用机械制造",
+
+                data: listData6
+              },
+              {
+                name: "其他电气机械及器材制造",
+
+                data: listData7
+              },
+              {
+                name: "增材制造装备制造",
+
+                data: listData8
               }
             ]
           });
@@ -951,50 +796,80 @@ export default {
       var option = {};
       var t = this;
 
-      let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
-      let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
-      let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
-      let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
-      let xData = [
-        "01:00",
-        "03:00",
-        "05:00",
-        "07:00",
-        "09:00",
-        "11:00",
-        "13:00",
-        "15:00",
-        "17:00",
-        "19:00",
-        "21:00",
-        "23:00"
-      ];
+      // let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
+      // let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
+      // let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      // let dataD4 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      // let dataD5 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
 
-      for (var i = 0; i < xData.length; i++) {
-        dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
-        dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
-        dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
-        dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
-        dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
-        dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
-      }
-      console.log(dataC1);
-      console.log(dataC2);
-      console.log(dataC3);
-      console.log(dataD1);
-      console.log(dataD2);
-      console.log(dataD3);
+      let dataC1 = [];
+      let dataC2 = [];
+      let dataC3 = [];
+      let dataD1 = [];
+      let dataD2 = [];
+      let dataD3 = [];
+      let dataD4 = [];
+      let dataD5 = [];
+
+      let xData = [];
+      // let xData = [];
+
+      // t.$axios.get("/findAllElectricityRelated").then((result) => {
+      //   console.log(result);
+      //   console.log("dasdasd");
+      //   let dataTime = result.data.data.electricityRelatedServiceAllDate;
+      //   let dataResult = result.data.data.electricityRelatedServiceAllRelated;
+
+      //   xData = dataTime;
+
+      //     xData.forEach(dataTime=>{
+
+      //       dataResult.forEach(element => {
+      //       // console.log(element);
+      //       if(dataTime == element.electDateStr){
+
+      //         if(element.manufacts.owner == "机械制造业"){
+      //             if(element.manufacts.manuName == "文化、办公用机械制造"){
+      //                 dataC1.push({
+      //                     name:dataTime,
+      //                     value:element.energy
+      //                   });
+      //               }
+      //           }
+      //       }
+
+      //     });
+      //   });
+
+      // }).catch((err) => {
+
+      // });
+      // console.log(dataC1);
+      // console.log("dataC1");
 
       var fontColor = "#30eee9";
       option = {
         backgroundColor: "",
+        title: {
+          show: true, //显示策略，默认值true,可选为：true（显示） | false（隐藏）
+          text: "航空制造业", //主标题文本，'\n'指定换行
+          textStyle: { fontSize: 18, fontWeight: "bolder", color: "#fff" },
+          // fontFamily: 'Arial, Verdana, sans...',
+          // fontSize: 12,
+          // fontStyle: 'normal',
+          // fontWeight: 'normal',
+          // fontColor: '#fff'
+
+          x: "center"
+        },
         grid: {
           left: "5%",
           right: "2%",
-          top: "10%",
-          bottom: "15%",
+          top: "30%",
+          bottom: "0%",
           containLabel: true
         },
         tooltip: {
@@ -1007,15 +882,330 @@ export default {
           }
         },
         legend: {
-          data: ["C1", "C2", "C3", "D1", "D2", "D3"],
-          itemWidth: 20,
+          data: [
+            "铁路、船舶、航空航天等运输设备修理",
+            "航空、航天器及设备制造"
+          ],
+          itemWidth: 15,
           itemHeight: 10,
           textStyle: {
             fontSize: 14,
             color: "#65aaf1"
           },
-          right: "35%", //距离右侧
-          top: "5%"
+          right: "30%", //距离右侧
+          top: "10%"
+          // left : '50%'
+        },
+        xAxis: [
+          {
+            type: "category",
+            boundaryGap: false,
+            axisLabel: {
+              color: "#65aaf1"
+            },
+            axisLine: {
+              show: true,
+              lineStyle: {
+                color: "#0a2b52",
+                width: 1
+              }
+            },
+            data: xData
+          }
+        ],
+        yAxis: [
+          {
+            type: "value",
+            // name: 'kw/h',
+            nameTextStyle: {
+              color: "#65aaf1",
+              fontStyle: "normal"
+            },
+            axisLabel: {
+              formatter: "{value}",
+              textStyle: {
+                color: "#65aaf1"
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#0a2b52"
+              }
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: "#0a2b52",
+                width: 1,
+                type: "solid"
+              }
+            }
+          }
+        ],
+        series: [
+          {
+            name: "铁路、船舶、航空航天等运输设备修理",
+            type: "line",
+            stack: "总量",
+            symbol: "circle",
+            showSymbol: false,
+            symbolSize: 8,
+            itemStyle: {
+              normal: {
+                color: "#0092f6",
+                lineStyle: {
+                  color: "#0092f6",
+                  width: 1
+                },
+                areaStyle: {
+                  //color: '#94C9EC'
+                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0.4,
+                      color: "rgba(7,44,90,0.1)"
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(0,146,246,0.9)"
+                    }
+                  ])
+                }
+              }
+            },
+            markPoint: {
+              itemStyle: {
+                normal: {
+                  color: "red"
+                }
+              }
+            },
+            data: null
+          },
+          {
+            name: "航空、航天器及设备制造",
+            type: "line",
+            stack: "总量",
+            symbol: "circle",
+            showSymbol: false,
+            symbolSize: 8,
+
+            itemStyle: {
+              normal: {
+                color: "#00d4c7",
+                lineStyle: {
+                  color: "#00d4c7",
+                  width: 1
+                },
+                areaStyle: {
+                  //color: '#94C9EC'
+                  color: new t.$echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                      offset: 0.4,
+                      color: "rgba(7,44,90,0.1)"
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(0,212,199,0.9)"
+                    }
+                  ])
+                }
+              }
+            },
+            data: null
+          }
+        ]
+      };
+      echart3.setOption(option);
+
+      t.$axios
+        .get("/findAllElectricityRelated")
+        .then(result => {
+          console.log(result);
+          console.log("dasdasd");
+          let dataTime = result.data.data.electricityRelatedServiceAllDate;
+          let dataResult = result.data.data.electricityRelatedServiceAllRelated;
+
+          let listData1 = [];
+          let listData2 = [];
+
+          dataTime.forEach(time => {
+            dataResult.forEach(element => {
+              // console.log(element);
+              if (time == element.electDateStr) {
+                console.log(time);
+
+                if (element.manufacts.owner == "航空制造业") {
+                  if (
+                    element.manufacts.manuName ==
+                    "铁路、船舶、航空航天等运输设备修理"
+                  ) {
+                    // console.log(element.manufacts.manuName);
+                    listData1.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName == "航空、航天器及设备制造"
+                  ) {
+                    listData2.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  }
+                }
+              }
+            });
+          });
+
+          console.log(listData1);
+          console.log(dataTime);
+          console.log("dataTime");
+
+          echart3.setOption({
+            xAxis: [
+              {
+                data: dataTime
+              }
+            ],
+            series: [
+              {
+                name: "铁路、船舶、航空航天等运输设备修理",
+
+                data: listData1
+              },
+              {
+                name: "航空、航天器及设备制造",
+
+                data: listData2
+              }
+            ]
+          });
+        })
+        .catch(err => {});
+    },
+    drawChart2() {
+      let echart2 = this.$echarts.init(document.getElementById("echart2"));
+      var option = {};
+      var t = this;
+
+      // let dataC1 = [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 260, 280];
+      // let dataC2 = [220, 182, 191, 210, 230, 270, 270, 201, 154, 140, 240, 250];
+      // let dataC3 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD1 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD2 = [150, 232, 201, 154, 190, 180, 210, 150, 182, 201, 154, 190];
+      // let dataD3 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      // let dataD4 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+      // let dataD5 = [200, 232, 201, 200, 190, 190, 210, 190, 182, 201, 154, 190];
+
+      let dataC1 = [];
+      let dataC2 = [];
+      let dataC3 = [];
+      let dataD1 = [];
+      let dataD2 = [];
+      let dataD3 = [];
+      let dataD4 = [];
+      let dataD5 = [];
+
+      let xData = [];
+      // let xData = [];
+
+      // t.$axios.get("/findAllElectricityRelated").then((result) => {
+      //   console.log(result);
+      //   console.log("dasdasd");
+      //   let dataTime = result.data.data.electricityRelatedServiceAllDate;
+      //   let dataResult = result.data.data.electricityRelatedServiceAllRelated;
+
+      //   xData = dataTime;
+
+      //     xData.forEach(dataTime=>{
+
+      //       dataResult.forEach(element => {
+      //       // console.log(element);
+      //       if(dataTime == element.electDateStr){
+
+      //         if(element.manufacts.owner == "机械制造业"){
+      //             if(element.manufacts.manuName == "文化、办公用机械制造"){
+      //                 dataC1.push({
+      //                     name:dataTime,
+      //                     value:element.energy
+      //                   });
+      //               }
+      //           }
+      //       }
+
+      //     });
+      //   });
+
+      // }).catch((err) => {
+
+      // });
+      // console.log(dataC1);
+      // console.log("dataC1");
+
+      // for (var i = 0; i < xData.length; i++) {
+      //   dataC1.splice(i, 1, { name: xData[i], value: dataC1[i] });
+      //   dataC2.splice(i, 1, { name: xData[i], value: dataC2[i] });
+      //   dataC3.splice(i, 1, { name: xData[i], value: dataC3[i] });
+      //   dataD1.splice(i, 1, { name: xData[i], value: dataD1[i] });
+      //   dataD2.splice(i, 1, { name: xData[i], value: dataD2[i] });
+      //   dataD3.splice(i, 1, { name: xData[i], value: dataD3[i] });
+      // }
+      // console.log(dataC1);
+      // console.log("dataC1");
+      // console.log(dataC2);
+      // console.log(dataC3);
+      // console.log(dataD1);
+      // console.log(dataD2);
+      // console.log(dataD3);
+
+      var fontColor = "#30eee9";
+      option = {
+        backgroundColor: "",
+        title: {
+          show: true, //显示策略，默认值true,可选为：true（显示） | false（隐藏）
+          text: "机械制造业", //主标题文本，'\n'指定换行
+          textStyle: { fontSize: 18, fontWeight: "bolder", color: "#fff" },
+          // fontFamily: 'Arial, Verdana, sans...',
+          // fontSize: 12,
+          // fontStyle: 'normal',
+          // fontWeight: 'normal',
+          // fontColor: '#fff'
+
+          x: "center"
+        },
+        grid: {
+          left: "5%",
+          right: "2%",
+          top: "30%",
+          bottom: "0%",
+          containLabel: true
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+            lineStyle: {
+              color: "#57617B"
+            }
+          }
+        },
+        legend: {
+          data: [
+            "汽车制造",
+            "城市轨道交通设备制造",
+            "改装汽车制造",
+            "低速汽车制造",
+            "汽车车身、挂车制造",
+            "汽车零部件及配件制造"
+          ],
+          itemWidth: 15,
+          itemHeight: 10,
+          textStyle: {
+            fontSize: 14,
+            color: "#65aaf1"
+          },
+          right: "0%", //距离右侧
+          top: "10%"
           // left : '50%'
         },
         xAxis: [
@@ -1075,7 +1265,7 @@ export default {
         ],
         series: [
           {
-            name: "C1",
+            name: "汽车制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -1110,10 +1300,10 @@ export default {
                 }
               }
             },
-            data: dataC1
+            data: null
           },
           {
-            name: "C2",
+            name: "城市轨道交通设备制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -1142,10 +1332,10 @@ export default {
                 }
               }
             },
-            data: dataC2
+            data: null
           },
           {
-            name: "C3",
+            name: "改装汽车制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -1173,10 +1363,10 @@ export default {
                 }
               }
             },
-            data: dataC3
+            data: null
           },
           {
-            name: "D1",
+            name: "低速汽车制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -1204,10 +1394,10 @@ export default {
                 }
               }
             },
-            data: dataD1
+            data: null
           },
           {
-            name: "D2",
+            name: "汽车车身、挂车制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -1235,10 +1425,10 @@ export default {
                 }
               }
             },
-            data: dataD2
+            data: null
           },
           {
-            name: "D3",
+            name: "汽车零部件及配件制造",
             type: "line",
             stack: "总量",
             symbol: "circle",
@@ -1266,304 +1456,375 @@ export default {
                 }
               }
             },
-            data: dataD3
+            data: null
           }
         ]
       };
-      echart3.setOption(option);
+      echart2.setOption(option);
+
+      t.$axios
+        .get("/findAllElectricityRelated")
+        .then(result => {
+          console.log(result);
+          console.log("dasdasd");
+          let dataTime = result.data.data.electricityRelatedServiceAllDate;
+          let dataResult = result.data.data.electricityRelatedServiceAllRelated;
+
+          let listData1 = [];
+          let listData2 = [];
+          let listData3 = [];
+          let listData4 = [];
+          let listData5 = [];
+          let listData6 = [];
+
+          dataTime.forEach(time => {
+            dataResult.forEach(element => {
+              // console.log(element);
+              if (time == element.electDateStr) {
+                console.log(time);
+
+                if (element.manufacts.owner == "汽车制造业") {
+                  if (element.manufacts.manuName == "汽车制造") {
+                    // console.log(element.manufacts.manuName);
+                    listData1.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName == "城市轨道交通设备制造"
+                  ) {
+                    listData2.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (element.manufacts.manuName == "改装汽车制造") {
+                    listData3.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (element.manufacts.manuName == "低速汽车制造") {
+                    listData4.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName == "汽车车身、挂车制造"
+                  ) {
+                    listData5.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  } else if (
+                    element.manufacts.manuName == "汽车零部件及配件制造"
+                  ) {
+                    listData6.push({
+                      name: time,
+                      value: element.energy
+                    });
+                  }
+                }
+              }
+            });
+          });
+
+          console.log(listData1);
+          console.log(dataTime);
+          console.log("dataTime");
+
+          echart2.setOption({
+            xAxis: [
+              {
+                data: dataTime
+              }
+            ],
+            series: [
+              {
+                name: "汽车制造",
+
+                data: listData1
+              },
+              {
+                name: "城市轨道交通设备制造",
+
+                data: listData2
+              },
+              {
+                name: "改装汽车制造",
+
+                data: listData3
+              },
+              {
+                name: "低速汽车制造",
+
+                data: listData4
+              },
+              {
+                name: "汽车车身、挂车制造",
+
+                data: listData5
+              },
+              {
+                name: "汽车零部件及配件制造",
+
+                data: listData6
+              }
+            ]
+          });
+        })
+        .catch(err => {});
     },
+
     drawChartMap1() {
       let map_1 = this.$echarts.init(document.getElementById("map_1"));
+
       var option = {};
       var t = this;
 
-      // Generate data
-      var category = [
-        "0:00",
-        "1:00",
-        "2:00",
-        "3:00",
-        "4:00",
-        "5:00",
-        "6:00",
-        "7:00",
-        "8:00",
-        "9:00",
-        "10:00",
-        "11:00",
-        "12:00",
-        "13:00",
-        "14:00",
-        "15:00",
-        "16:00",
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-        "23:00"
-      ];
-      var dottedBase = [];
-      var lineData = [
-        18092,
-        20728,
-        24045,
-        28348,
-        32808,
-        36097,
-        39867,
-        44715,
-        48444,
-        50415,
-        56061,
-        62677,
-        59521,
-        67560,
-        18092,
-        20728,
-        24045,
-        28348
-      ];
-      var barData = [
-        4600,
-        5000,
-        5500,
-        6500,
-        7500,
-        8500,
-        9900,
-        12500,
-        14000,
-        21500,
-        23200,
-        24450,
-        25250,
-        33300,
-        4600,
-        5000,
-        5500,
-        4555
-      ];
-      var rateData = [
-        1832,
-        2028,
-        2445,
-        2838,
-        3288,
-        3607,
-        3967,
-        4415,
-        4844,
-        5045,
-        5061,
-        6677,
-        5521,
-        6560,
-        1092,
-        2028,
-        2045,
-        2348
-      ];
-      var rateData1 = [
-        460,
-        500,
-        550,
-        1500,
-        750,
-        850,
-        900,
-        1200,
-        1400,
-        2150,
-        2320,
-        2445,
-        2550,
-        330,
-        460,
-        500,
-        550,
-        455
-      ];
-
-      // option
       option = {
-        title: {
-          text: "三大行业总体用电量分析",
-          x: "center",
-          y: 0,
-          textStyle: {
-            color: "#B4B4B4",
-            fontSize: 16,
-            fontWeight: "normal"
-          }
-        },
         backgroundColor: "",
-        tooltip: {
-          trigger: "axis",
-          backgroundColor: "rgba(255,255,255,0.1)",
-          axisPointer: {
-            type: "shadow",
-            label: {
-              show: true,
-              backgroundColor: "#7B7DDC"
+        color: ["#ffd285", "#ff733f", "#ec4863"],
+
+        title: [
+          {
+            text: "三大行业用电量总和",
+            left: "1%",
+            top: "6%",
+            textStyle: {
+              color: "#fff"
             }
-          }
-        },
-        toolbox: {
-          feature: {
-            dataView: {
-              show: true,
-              readOnly: false
-            },
-            magicType: {
-              show: true,
-              type: ["line", "bar", "tiled"]
-            },
-            restore: {
-              show: true
-            },
-            saveAsImage: {
-              show: true
-            }
-          }
-        },
-        legend: {
-          data: ["浏览量", "商品浏览量", "访客数", "商品访问数"],
-          textStyle: {
-            color: "#B4B4B4"
           },
-          top: "7%"
+          {
+            text: "用户来源占比",
+            left: "83%",
+            top: "6%",
+            textAlign: "center",
+            textStyle: {
+              color: "#fff"
+            }
+          }
+        ],
+        tooltip: {
+          trigger: "axis"
         },
-        grid: {
-          x: "12%",
-          width: "82%",
-          y: "12%"
+        legend: [
+          {
+            x: 300,
+            top: "7%",
+            textStyle: {
+              color: "#ffd285"
+            },
+            data: ["汽车制造业", "航空制造业", "机械制造业"]
+          },
+          {
+            textStyle: {
+              color: "#ffd285"
+            },
+            left: "80%",
+            right: "1%",
+            top: "16%",
+            bottom: "6%",
+            data: ["A", "B", "C"]
+          }
+        ],
+        grid: [
+          {
+            left: "1%",
+            right: "35%",
+            top: "16%",
+            bottom: "6%",
+            containLabel: true
+          },
+          {
+            left: "80%",
+            right: "1%",
+            top: "16%",
+            bottom: "6%"
+          }
+        ],
+        toolbox: {
+          show: false,
+          feature: {
+            saveAsImage: {}
+          }
         },
         xAxis: {
-          data: category,
+          type: "category",
           axisLine: {
             lineStyle: {
-              color: "#B4B4B4"
+              color: "#FF4500"
             }
           },
           axisTick: {
             show: false
-          }
-        },
-        yAxis: [
-          {
-            splitLine: {
-              show: false
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#B4B4B4"
-              }
-            },
-
-            axisLabel: {
-              formatter: "{value} "
+          },
+          axisLabel: {
+            textStyle: {
+              color: "#fff"
             }
           },
-          {
-            splitLine: {
-              show: false
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#B4B4B4"
-              }
-            },
-            axisLabel: {
-              formatter: "{value} "
+          boundaryGap: false,
+          data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+        },
+        angleAxis: {
+          
+          type: "category",
+          data: [{
+            textStyle:{
+              color:"#fff"
             }
-          }
-        ],
-
+          },"周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+          axisLine:{
+            lineStyle:{
+                color:"#fff"
+            }
+        },
+          
+          z: 10
+        },
+         polar: {
+          center: ['85%', '55%'],
+            radius: 140,
+        },
+        yAxis: {
+          axisLine: {
+            lineStyle: {
+              color: "#fff"
+            }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: "#fff"
+            }
+          },
+          axisTick: {
+            show: true
+          },
+          axisLabel: {
+            textStyle: {
+              color: "#fff"
+            }
+          },
+          type: "value"
+        },
+        
+        radiusAxis: {
+           axisLine:{
+            lineStyle:{
+                color:"#fff"
+            }
+        },
+        },
+       
         series: [
           {
-            name: "浏览量",
-            type: "bar",
-            barGap: "-100%",
-            barWidth: 10,
-            itemStyle: {
-              normal: {
-                barBorderRadius: 5,
-                color: new t.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  {
-                    offset: 0,
-                    color: "rgba(156,107,211,0.5)"
-                  },
-                  {
-                    offset: 0.2,
-                    color: "rgba(156,107,211,0.3)"
-                  },
-                  {
-                    offset: 1,
-                    color: "rgba(156,107,211,0)"
-                  }
-                ])
-              }
-            },
-            z: -12,
+            name: "航空制造业",
+            smooth: true,
+            type: "line",
+            symbolSize: 8,
+            symbol: "circle",
+            data: [90, 50, 39, 50, 120, 82, 80]
+          },
+          {
+            name: "汽车制造业",
+            smooth: true,
+            type: "line",
+            symbolSize: 8,
+            symbol: "circle",
+            data: [70, 50, 50, 87, 90, 80, 70]
+          },
+          {
+            name: "机械制造业",
+            smooth: true,
+            type: "line",
+            symbolSize: 8,
+            symbol: "circle",
+            data: [290, 200, 20, 132, 15, 200, 90]
+          },
 
-            data: lineData
-          },
           {
-            name: "商品浏览量",
             type: "bar",
-            barWidth: 10,
-            itemStyle: {
+            data: [1, 2, 3, 4, 3, 5, 1],
+            label: {
               normal: {
-                barBorderRadius: 5,
-                color: new t.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  {
-                    offset: 0,
-                    color: "#956FD4"
-                  },
-                  {
-                    offset: 1,
-                    color: "#3EACE5"
-                  }
-                ])
+                position: "center"
               }
             },
-            data: barData
+            coordinateSystem: "polar",
+            name: "A",
+            stack: "a"
           },
           {
-            name: "访客数",
-            type: "line",
-            smooth: true,
-            showAllSymbol: true,
-            symbol: "emptyCircle",
-            symbolSize: 8,
-            yAxisIndex: 1,
-            itemStyle: {
+            type: "bar",
+            data: [2, 4, 6, 1, 3, 2, 1],
+            coordinateSystem: "polar",
+            label: {
               normal: {
-                color: "#F02FC2"
+                position: "center"
               }
             },
-            data: rateData
+            name: "B",
+            stack: "a"
           },
           {
-            name: "商品访问数",
-            type: "line",
-            smooth: true,
-            showAllSymbol: true,
-            symbol: "emptyCircle",
-            symbolSize: 8,
-            yAxisIndex: 1,
-            itemStyle: {
+            type: "bar",
+            data: [1, 2, 3, 4, 1, 2, 5],
+            coordinateSystem: "polar",
+            label: {
               normal: {
-                color: "#00ca95"
+                position: "center"
               }
             },
-            data: rateData1
+            name: "C",
+            stack: "a"
           }
+
+         
         ]
       };
       map_1.setOption(option);
+
+    t.$axios
+        .get("/findAllElectricityRelated")
+        .then(result => {
+          console.log(result);
+          console.log("dasdasd");
+          let dataTime = result.data.data.electricityRelatedServiceAllDate;//日期
+          let dataResult = result.data.data.electricityRelatedServiceAllRelated;//数值
+
+          let listData1 = [];
+          let listData2 = [];
+          let listData3 = [];
+          let listData4 = [];
+          let listData5 = [];
+          let listData6 = [];
+
+          dataTime.forEach(time => {
+            var numSum = 0;
+            dataResult.forEach(element => {
+              // console.log(element);
+              if (time == element.electDateStr && element.manufacts.owner == "航空制造业") {
+
+               
+                  console.log(time);
+
+                  // numSum += element.manufacts.manuName; 
+                  console.log("aaaaaaaaaaaaaaaaaaaaaaaaa");
+                  console.log(element);
+                
+              }
+            });
+          });
+
+          console.log(listData1);
+          console.log(dataTime);
+          console.log("dataTime");
+
+       
+        })
+        .catch(err => {});
+
+
     }
   }
 };
@@ -1571,4 +1832,16 @@ export default {
 
 <style scoped>
 @import "./../assets/css/comon0.css";
+.seamless-warp {
+  height: 3.7rem;
+  overflow: hidden;
+}
+.title {
+  color: cadetblue;
+  font-size: 0.3rem;
+}
+.date {
+  color: cadetblue;
+  font-size: 0.3rem;
+}
 </style>
