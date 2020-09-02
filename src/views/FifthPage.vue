@@ -12,7 +12,7 @@
     <ul class="clearfix">
       <li>
         <div class="boxall" style="height: 7rem">
-          <div class="alltitle">模2222式</div>
+          <div class="alltitle"></div>
           <div class="allnav" id="echart1"></div>
           <div class="boxfoot"></div>
         </div>
@@ -34,13 +34,13 @@
         <div class="bar" style="margin-bottom:.5rem">
           <div class="barbox">
             <ul class="clearfix">
-              <li class="counter" style="width:100%;line-height: 1rem;font-size:.4rem">行业用电量关联性分析</li>
+              <li class="counter" style="width:100%;line-height: 1rem;font-size:.4rem">行业分时用电量优化</li>
             </ul>
           </div>
         </div>
 
         <!-- 标题 -->
-        <div class="bar">
+        <!-- <div class="bar">
           <div class="barbox">
             <ul class="clearfix">
               <li class="pulll_left counter">12581189</li>
@@ -53,11 +53,11 @@
               <li class="pulll_left">2018年总支出情况</li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
-        <div class="map"  style="height:10.4rem">
+        <div class="map"  style="height:13rem">
    
-          <div class="map4" id="map_1" style="left:-110%;top:25%;bottom:0;"></div>
+          <div class="map4" id="map_1" style="left:-120%;top:36%;bottom:0;"></div>
         </div>
       </li>
       <li>
@@ -73,16 +73,23 @@
                   <span class="date">行业</span>
                 </div>
                 <div class="num" style=" display:inline;margin-left:3.5rem">
-                  <span class="date">用电量</span>
+                  <span class="date">优化后用电量</span>
                 </div>
               </div>
 
               <vue-seamless-scroll :data="listData" class="seamless-warp">
                 <ul class="item">
                   <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
-                    <span class="title" v-text="item.date" style="width:50px"></span>
-                    <span class="date" v-text="item.name" style="width:50px"></span>
-                    <span class="date" v-text="item.num" style="width:50px"></span>
+                    <div style="display:inline;">
+                      <span class="title" v-text="item.date" style="width:50px"></span>
+                    </div>
+
+                    <div style="display:inline;margin-left:1rem">
+                      <span class="date" v-text="item.name" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:2rem">
+                      <span class="date" v-text="item.num" style="width:50px"></span>
+                    </div>
                   </li>
                 </ul>
               </vue-seamless-scroll>
@@ -120,89 +127,55 @@ export default {
       fontSize: document.documentElement.clientWidth,
       listData: [
         {
-          title: "无缝滚动第一行无缝滚动第一行",
-          date: "2017-12-16"
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
         },
         {
-          title: "无缝滚动第二行无缝滚动第二行",
-          date: "2017-12-16"
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
         },
-        {
-          title: "无缝滚动第三行无缝滚动第三行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第四行无缝滚动第四行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第五行无缝滚动第五行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第六行无缝滚动第六行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第七行无缝滚动第七行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第八行无缝滚动第八行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        }
       ]
     };
   },
@@ -241,6 +214,28 @@ export default {
       tipLineImg.src = tipLine;
       option = {
         backgroundColor: "",
+         title: {
+          show: true, //显示策略，默认值true,可选为：true（显示） | false（隐藏）
+          text: "三大行业用电量优化", //主标题文本，'\n'指定换行
+          textStyle: { fontSize: 18, fontWeight: "bolder", color: "#fff" },
+          // fontFamily: 'Arial, Verdana, sans...',
+          // fontSize: 12,
+          // fontStyle: 'normal',
+          // fontWeight: 'normal',
+          // fontColor: '#fff'
+
+          x: "center"
+        },
+        legend: {
+            data: ['汽车行业电量优化', '航空行业电量优化', '机械行业电量优化'],
+            x:'center',      //可设定图例在左、右、居中
+            y:'15%',     //可设定图例在上、下、居中
+            padding:[0,50,0,0],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
+            textStyle: {
+            fontSize: 14,
+            color: "#65aaf1"
+          },
+        },
         tooltip: {
           trigger: "axis",
           formatter: "{b}<br />{a0}: {c0}<br />{a1}: {c1}",
@@ -259,16 +254,16 @@ export default {
         },
         calculable: true,
         grid: {
-          left: "2%",
+          left: "5%",
           right: "2%",
           bottom: "0%",
-          top: "5%",
+          top: "20%",
           containLabel: true
         },
         xAxis: [
           {
             type: "category",
-            data: [1, 2, 3, 4, 5, 6, 7],
+            data: ["00:00:00", "01:00:00", "02:00:00", "03:00:00", "04:00:00", "05:00:00", "06:00:00"],
             axisLabel: {
               interval: 0,
               textStyle: {
@@ -323,10 +318,10 @@ export default {
         ],
         series: [
           {
-            name: "今日空车",
+            name: "汽车行业电量优化",
             type: "bar",
             data: [1, 2, 3, 4, 5, 6, 7],
-            barWidth: 20,
+            barWidth: 10,
             barGap: 0.5, // 柱间距离
             showBackground: true,
             backgroundStyle: {
@@ -376,10 +371,10 @@ export default {
             }
           },
           {
-            name: "今日重车",
+            name: "航空行业电量优化",
             type: "bar",
             data: [4, 1, 2, 1, 2, 6, 7],
-            barWidth: 20,
+            barWidth: 10,
             barGap: 0.5, // 柱间距离
             showBackground: true,
             backgroundStyle: {
@@ -401,6 +396,60 @@ export default {
                   {
                     offset: 1,
                     color: "rgba(255,140,5,0.49)"
+                  }
+                ]),
+                borderWidth: 0
+              }
+            },
+            label: {
+              show: true,
+              position: "insideTop",
+              distance: -10,
+              rich: {
+                a: {
+                  color: "#fff",
+                  fontSize: 14,
+                  align: "left",
+                  padding: [0, 0, -5, 0],
+                  width: 25,
+                  height: 3,
+                  lineHeight: 16,
+                  backgroundColor: {
+                    image: tipLineImg
+                  }
+                }
+              },
+              formatter: params => {
+                return "{a|" + "" + "}";
+              }
+            }
+          },
+          {
+            name: "机械行业电量优化",
+            type: "bar",
+            data: [4, 1, 2, 1, 2, 6, 7],
+            barWidth: 10,
+            barGap: 0.5, // 柱间距离
+            showBackground: true,
+            backgroundStyle: {
+              // color: 'rgba(15,106,223, 0.2)'
+              color: {
+                image: piePatternImg,
+                repeat: "repeat"
+              },
+              opacity: 0.2
+            },
+            itemStyle: {
+              normal: {
+                show: true,
+                color: new t.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: "rgba(120, 206, 40,0.88) "
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(41, 202, 180,0.49)"
                   }
                 ]),
                 borderWidth: 0
@@ -479,7 +528,7 @@ export default {
           textStyle: {
             color: "#90979c"
           },
-          data: ["一级", "二级", "三级"]
+          data: ["汽车行业", "航空行业", "机械行业","行业优化后总用量"]
         },
         calculable: true,
         xAxis: [
@@ -526,12 +575,12 @@ export default {
             splitArea: {
               show: false
             },
-            data: ["一级", "二级", "三级", "四级", "五级"]
+            data: ["00:00:00", "01:00:00", "02:00:00", "03:00:00", "04:00:00", "05:00:00", "06:00:00"]
           }
         ],
         series: [
           {
-            name: "一级",
+            name: "汽车行业",
             type: "bar",
             stack: "总量",
             barMaxWidth: 15,
@@ -563,7 +612,7 @@ export default {
             data: [709, 1917, 2455, 2610, 1719]
           },
           {
-            name: "二级",
+            name: "机械行业",
             type: "bar",
             stack: "总量",
             itemStyle: {
@@ -593,7 +642,7 @@ export default {
             data: [327, 1776, 507, 1200, 800]
           },
           {
-            name: "三级",
+            name: "航空行业",
             type: "bar",
             stack: "总量",
             itemStyle: {
@@ -624,7 +673,7 @@ export default {
             data: [327, 1776, 507, 1200, 800]
           },
            {
-            name: "三级",
+            name: "行业优化后总用量",
             type: "line",
             stack: "总量",
             itemStyle: {

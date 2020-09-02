@@ -72,20 +72,23 @@
             <vue-seamless-scroll :data="listData" class="seamless-warp">
               <ul class="item">
                 <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
-                    <span class="title" v-text="item.date" style="width:50px"></span>
-                    <span class="date" v-text="item.name" style="width:50px"></span>
-                    <span class="date" v-text="item.num"  style="width:50px"></span>
+                    <div style="display:inline;">
+                      <span class="title" v-text="item.date" style="width:50px"></span>
+                    </div>
+
+                    <div style="display:inline;margin-left:1rem">
+                      <span class="date" v-text="item.name" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:2rem">
+                      <span class="date" v-text="item.num" style="width:50px"></span>
+                    </div>
                 </li>
               </ul>
             </vue-seamless-scroll>
           </div>
           <div class="boxfoot"></div>
         </div>
-        <!-- <div class="boxall" style="height: 3rem">
-          <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart6"></div>
-          <div class="boxfoot"></div>
-        </div>-->
+
       </li>
     </ul>
   </div>
@@ -102,90 +105,6 @@ export default {
       map: require("./../assets/img/map.png"),
       fontSize: document.documentElement.clientWidth,
       listData: [
-        // {
-        //   title: "无缝滚动第一行无缝滚动第一行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第二行无缝滚动第二行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第三行无缝滚动第三行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第四行无缝滚动第四行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第五行无缝滚动第五行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第六行无缝滚动第六行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第七行无缝滚动第七行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第八行无缝滚动第八行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // },
-        // {
-        //   title: "无缝滚动第九行无缝滚动第九行",
-        //   date: "2017-12-16"
-        // }
       ]
     };
   },

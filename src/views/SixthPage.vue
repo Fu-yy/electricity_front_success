@@ -12,53 +12,52 @@
           </div>
     <ul class="clearfix">
       <li>
-        <div class="boxall" style="height: 7.2rem">
-         
-         <div class="alltitle">
-            
-            <div class="allnav">
+         <div class="boxall" style="height: 7.2rem">
+          <div class="alltitle"></div>
+          <div class="allnav" id="echart2">
+
+
+              <div><span style="text-align:center;color:#fff">行业用电量及优化后用电量对比</span></div>
               <div class="scollTitle" style="height:1rem">
                 <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
                   <span class="title">时间</span>
                 </div>
-                <div class="nameTitle" style=" display:inline;margin-left:3rem">
+                <div class="nameTitle" style=" display:inline;margin-left:1.5rem">
                   <span class="date">行业</span>
                 </div>
-                <div class="num" style=" display:inline;margin-left:3.5rem">
+                <div class="num" style=" display:inline;margin-left:2rem">
                   <span class="date">用电量</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:2.5rem">
+                  <span class="date">涨幅</span>
                 </div>
               </div>
 
               <vue-seamless-scroll :data="listData" class="seamless-warp">
                 <ul class="item">
                   <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
-                    <span class="title" v-text="item.date" style="width:50px"></span>
-                    <span class="date" v-text="item.name" style="width:50px"></span>
-                    <span class="date" v-text="item.num" style="width:50px"></span>
+                    <div style="display:inline;">
+                      <span class="title" v-text="item.date" style="width:50px"></span>
+                    </div>
+
+                    <div style="display:inline;margin-left:1rem">
+                      <span class="date" v-text="item.name" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:1.5rem">
+                      <span class="date" v-text="item.num" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:2rem">
+                      <span class="date" v-text="item.increas" style="width:50px"></span>
+                    </div>
                   </li>
                 </ul>
               </vue-seamless-scroll>
             </div>
-
-          </div>
           <div class="boxfoot"></div>
         </div>
-        <!-- <div class="boxall" style="height: 4.2rem">
-          <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart2"></div>
-          <div class="boxfoot"></div>
-        </div>-->
-        <!-- <div class="boxall" style="height: 5rem">
-          <div style="height:100%; width: 100%;">
-            <div class="sy" id="fb1"></div>
-            <div class="sy" id="fb2"></div>
-            <div class="sy" id="fb3"></div>
-          </div>
-          <div class="boxfoot"></div>
-        </div>-->
       </li>
       <li>
-        <div class="bar" style="margin-bottom:1rem">
+        <div class="bar" style="margin-bottom:.5rem">
           <div class="barbox">
             <ul class="clearfix">
               <li class="counter" style="width:100%;line-height: 1rem;font-size:.4rem">需求侧用电量优化</li>
@@ -67,7 +66,7 @@
         </div>
 
         <!-- 标题 -->
-        <div class="bar">
+        <!-- <div class="bar">
           <div class="barbox">
             <ul class="clearfix">
               <li class="pulll_left counter">12581189</li>
@@ -80,17 +79,32 @@
               <li class="pulll_left">2018年总支出情况</li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
-        <div class="map" style="height:10.4rem">
+        <div class="map" style="height:13rem">
        
-          <div class="map4" id="map_1" style="top:20%;bottom:0;"></div>
+          <div class="map4" id="map_1" style="top:35%;bottom:0;"></div>
         </div>
       </li>
       <li>
         <div class="boxall" style="height:6rem">
           <div class="alltitle">表格</div>
-          <div class="allnav" id="echart3"></div>
+          <!-- <div class="allnav" id="echart3"></div> -->
+          <div>
+            <span style="font-size:.5rem;color:#fff">
+              最大值:
+            </span>
+            </div>
+            <div>
+            <span style="font-size:.5rem;color:#fff">
+              最小值:
+            </span>
+            </div>
+             <div>
+            <span style="font-size:.5rem;color:#fff">
+             极差:
+            </span>
+            </div>
           <div class="boxfoot"></div>
         </div>
         <!-- <div class="boxall" style="height: 3.2rem">
@@ -120,89 +134,47 @@ export default {
       fontSize: document.documentElement.clientWidth,
       listData: [
         {
-          title: "无缝滚动第一行无缝滚动第一行",
-          date: "2017-12-16"
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
         },
-        {
-          title: "无缝滚动第二行无缝滚动第二行",
-          date: "2017-12-16"
+         {
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
+        }, {
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
+        }, {
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
+        }, {
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
+        }, {
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
+        }, {
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
+        }, {
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16",
+          increas:"1.2"
         },
-        {
-          title: "无缝滚动第三行无缝滚动第三行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第四行无缝滚动第四行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第五行无缝滚动第五行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第六行无缝滚动第六行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第七行无缝滚动第七行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第八行无缝滚动第八行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        }
       ]
     };
   },
@@ -388,7 +360,7 @@ export default {
           }
         },
         legend: {
-          data: ["浏览量", "商品浏览量", "访客数", "商品访问数"],
+          data: ["实际用电量", "优化后用电量", "优化率"],
           textStyle: {
             color: "#ffffff"
           },
@@ -442,7 +414,7 @@ export default {
 
         series: [
           {
-            name: "浏览量",
+            name: "实际用电量",
             type: "bar",
             barGap: "-100%",
             barWidth: 10,
@@ -470,7 +442,7 @@ export default {
             data: lineData
           },
           {
-            name: "商品浏览量",
+            name: "优化后用电量",
             type: "bar",
             barWidth: 10,
             itemStyle: {
@@ -491,7 +463,7 @@ export default {
             data: barData
           },
           {
-            name: "访客数",
+            name: "优化率",
             type: "line",
             smooth: true,
             showAllSymbol: true,
@@ -505,21 +477,21 @@ export default {
             },
             data: rateData
           },
-          {
-            name: "商品访问数",
-            type: "line",
-            smooth: true,
-            showAllSymbol: true,
-            symbol: "emptyCircle",
-            symbolSize: 8,
-            yAxisIndex: 1,
-            itemStyle: {
-              normal: {
-                color: "#00ca95"
-              }
-            },
-            data: rateData1
-          }
+          // {
+          //   name: "商品访问数",
+          //   type: "line",
+          //   smooth: true,
+          //   showAllSymbol: true,
+          //   symbol: "emptyCircle",
+          //   symbolSize: 8,
+          //   yAxisIndex: 1,
+          //   itemStyle: {
+          //     normal: {
+          //       color: "#00ca95"
+          //     }
+          //   },
+          //   data: rateData1
+          // }
         ]
       };
       map_1.setOption(option);
@@ -538,7 +510,8 @@ export default {
   @import "./../assets/css/comon0.css";
 
   .seamless-warp {
-  height: 3.7rem;
+    margin-top: .2rem;
+  height: 3rem;
   overflow: hidden;
 }
 .title {

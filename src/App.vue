@@ -44,7 +44,7 @@
       </div>
       <div class="fifthPageBtn pageBtn">
         <a href="#">
-          <router-link to="/fifthPage">关联性分析</router-link>
+          <router-link to="/fifthPage">分时电量优化</router-link>
         </a>
       </div>
       <div class="sixthPageBtn pageBtn">

@@ -11,14 +11,61 @@
     </div>
     <ul class="clearfix">
       <li>
-        <div class="boxall" style="height: 7.2rem">
+        <div class="boxall" style="height: 7.2rem;text-align:center">
           <div class="alltitle"></div>
-          <div class="allnav" id="echart1"></div>
+
+          <p  style="color:#fff;font-size:.5rem">
+                同比：*****
+
+          </p>
+           <p style="color:#fff;font-size:.5rem">
+                环比: *****
+
+          </p>
+         
+          <div class="allnav" id="echart1">
+
+          </div>
           <div class="boxfoot"></div>
         </div>
         <div class="boxall" style="height: 7.2rem">
           <div class="alltitle"></div>
-          <div class="allnav" id="echart2"></div>
+          <div class="allnav" id="echart2">
+              <div class="scollTitle" style="height:1rem">
+                <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
+                  <span class="title">时间</span>
+                </div>
+                <div class="nameTitle" style=" display:inline;margin-left:1.5rem">
+                  <span class="date">行业</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:2rem">
+                  <span class="date">用电量</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:2.5rem">
+                  <span class="date">涨幅</span>
+                </div>
+              </div>
+
+              <vue-seamless-scroll :data="listData" class="seamless-warp">
+                <ul class="item">
+                  <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
+                    <div style="display:inline;">
+                      <span class="title" v-text="item.date" style="width:50px"></span>
+                    </div>
+
+                    <div style="display:inline;margin-left:1rem">
+                      <span class="date" v-text="item.name" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:1.5rem">
+                      <span class="date" v-text="item.num" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:2rem">
+                      <span class="date" v-text="item.increase" style="width:50px"></span>
+                    </div>
+                  </li>
+                </ul>
+              </vue-seamless-scroll>
+            </div>
           <div class="boxfoot"></div>
         </div>
         <!-- <div class="boxall" style="height: 5rem">
@@ -40,7 +87,7 @@
 
           <div class="boxall" style="height: 5rem;top:0.3rem">
             <div class="alltitle"></div>
-            <div class="allnav" id="echart2">
+            <!-- <div class="allnav" id="echart2">
               <div class="scollTitle" style="height:1rem">
                 <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
                   <span class="title">时间</span>
@@ -62,26 +109,10 @@
                   </li>
                 </ul>
               </vue-seamless-scroll>
-            </div>
+            </div> -->
             <div class="boxfoot"></div>
           </div>
         </div>
-
-        <!-- 标题 -->
-        <!-- <div class="bar">
-          <div class="barbox">
-            <ul class="clearfix">
-              <li class="pulll_left counter">12581189</li>
-              <li class="pulll_left counter">3912410</li>
-            </ul>
-          </div>
-          <div class="barbox2">
-            <ul class="clearfix">
-              <li class="pulll_left">2018年总收入情况</li>
-              <li class="pulll_left">2018年总支出情况</li>
-            </ul>
-          </div>
-        </div>-->
 
         <div class="map" style="height:7.4rem">
           <div class="map4" id="map_1" style="left:0%;top:4%;bottom:0;"></div>
@@ -110,96 +141,64 @@ export default {
       fontSize: document.documentElement.clientWidth,
       listData: [
         {
-          title: "无缝滚动第一行无缝滚动第一行",
-          date: "2017-12-16"
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
         },
         {
-          title: "无缝滚动第二行无缝滚动第二行",
-          date: "2017-12-16"
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
+        }, {
+          date: "2017-12-16",
+          name: "汽车制造业",
+          num: "1000",
+          increase: "1.5"
         },
-        {
-          title: "无缝滚动第三行无缝滚动第三行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第四行无缝滚动第四行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第五行无缝滚动第五行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第六行无缝滚动第六行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第七行无缝滚动第七行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第八行无缝滚动第八行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        }
       ]
     };
   },
   mounted() {
-    this.drawChart1();
-    this.drawChart2();
-    this.drawChart3();
+    // this.drawChart1();
+    // this.drawChart2();
+    // this.drawChart3();
     this.drawChartMap1();
     var that = this;
     window.onresize = function() {

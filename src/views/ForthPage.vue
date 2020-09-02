@@ -14,12 +14,12 @@
     <ul class="clearfix">
       <li>
         <div class="boxall" style="height: 7.2rem">
-          <div class="alltitle">模2222式</div>
+          <div class="alltitle"></div>
           <div class="allnav" id="echart1"></div>
           <div class="boxfoot"></div>
         </div>
         <div class="boxall" style="height: 7.2rem">
-          <div class="alltitle">模块标题样式</div>
+          <div class="alltitle"></div>
           <div class="allnav" id="echart2"></div>
           <div class="boxfoot"></div>
         </div>
@@ -46,23 +46,35 @@
             <div class="alltitle"></div>
             <div class="allnav" id="echart2">
               <div class="scollTitle" style="height:1rem">
-                <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:1rem">
+                <div class="dateTitle" style=" display:inline;line-height: .75rem;margin-left:0rem">
                   <span class="title">时间</span>
                 </div>
-                <div class="nameTitle" style=" display:inline;margin-left:3rem">
+                <div class="nameTitle" style=" display:inline;margin-left:1rem">
                   <span class="date">行业</span>
                 </div>
-                <div class="num" style=" display:inline;margin-left:3.5rem">
+                <div class="num" style=" display:inline;margin-left:1.5rem">
                   <span class="date">用电量</span>
+                </div>
+                <div class="num" style=" display:inline;margin-left:2rem">
+                  <span class="date">与峰平谷电价对比</span>
                 </div>
               </div>
 
               <vue-seamless-scroll :data="listData" class="seamless-warp">
                 <ul class="item">
                   <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
-                    <span class="title" v-text="item.date" style="width:50px"></span>
-                    <span class="date" v-text="item.name" style="width:50px"></span>
-                    <span class="date" v-text="item.num" style="width:50px"></span>
+                   <div style="display:inline;">
+                      <span class="title" v-text="item.date" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:1rem">
+                      <span class="date" v-text="item.name" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:2rem">
+                      <span class="date" v-text="item.num" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:2rem">
+                      <span class="date" v-text="item.compared" style="width:50px"></span>
+                    </div>
                   </li>
                 </ul>
               </vue-seamless-scroll>
@@ -96,16 +108,16 @@
         </div>
       </li>
       <li>
-        <div class="boxall" style="height:3.4rem">
-          <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart3">echart6</div>
+        <div class="boxall" style="height:7.2rem">
+          <div class="alltitle"></div>
+          <div class="allnav" id="echart3"></div>
           <div class="boxfoot"></div>
         </div>
-        <div class="boxall" style="height: 3.2rem">
-          <div class="alltitle">模块标题样式</div>
-          <div class="allnav" id="echart4">echart6</div>
+        <!-- <div class="boxall" style="height: 3.2rem">
+          <div class="alltitle"></div>
+          <div class="allnav" id="echart4"></div>
           <div class="boxfoot"></div>
-        </div>
+        </div> -->
         <!-- <div class="boxall" style="height: 3rem">
           <div class="alltitle">模块标题样式</div>
           <div class="allnav" id="echart6">echart6</div>
@@ -128,89 +140,46 @@ export default {
       fontSize: document.documentElement.clientWidth,
       listData: [
         {
-          title: "无缝滚动第一行无缝滚动第一行",
-          date: "2017-12-16"
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
+        },{
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
+        },{
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
+        },{
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
+        },{
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
+        },{
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
+        },{
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
+        },{
+          compared: "1.5",
+          date: "00:00:00",
+          name: "汽车行业分时电价",
+          num: "100",
         },
-        {
-          title: "无缝滚动第二行无缝滚动第二行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第三行无缝滚动第三行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第四行无缝滚动第四行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第五行无缝滚动第五行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第六行无缝滚动第六行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第七行无缝滚动第七行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第八行无缝滚动第八行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        }
       ]
     };
   },
@@ -253,10 +222,12 @@ export default {
 
       option = {
         title: {
-          text: "24小时用电量分析",
+          text: "汽车行业分时电价",
           left: "50%",
           textAlign: "center",
-          top: "20%"
+          top: "20%",
+          textStyle: {"fontSize": 18,"fontWeight": "bolder","color": "#fff"}
+
         },
         tooltip: {
           trigger: "item",
@@ -342,10 +313,12 @@ export default {
 
       option = {
         title: {
-          text: "24小时用电量分析",
+          text: "机械行业分时电价",
           left: "50%",
           textAlign: "center",
-          top: "20%"
+          top: "20%",
+          textStyle: {"fontSize": 18,"fontWeight": "bolder","color": "#fff"}
+
         },
         tooltip: {
           trigger: "item",
@@ -423,10 +396,12 @@ export default {
 
       option = {
         title: {
-          text: "24小时用电量分析",
+          text: "航空行业分时电价",
           left: "50%",
           textAlign: "center",
-          top: "20%"
+          top: "20%",
+          textStyle: {"fontSize": 18,"fontWeight": "bolder","color": "#fff"}
+
         },
         tooltip: {
           trigger: "item",
@@ -484,87 +459,87 @@ export default {
 
       echart3.setOption(option);
     },
-    drawChart4() {
-      let echart4 = this.$echarts.init(document.getElementById("echart4"));
-      var option = {};
-      var t = this;
+    // drawChart4() {
+    //   let echart4 = this.$echarts.init(document.getElementById("echart4"));
+    //   var option = {};
+    //   var t = this;
 
-      var data = [];
-      var labelData = [];
-      for (var i = 0; i < 24; ++i) {
-        data.push({
-          value: Math.random() * 10 + 10 - Math.abs(i - 12),
-          name: i + ":00"
-        });
-        labelData.push({
-          value: 1,
-          name: i + ":00"
-        });
-      }
+    //   var data = [];
+    //   var labelData = [];
+    //   for (var i = 0; i < 24; ++i) {
+    //     data.push({
+    //       value: Math.random() * 10 + 10 - Math.abs(i - 12),
+    //       name: i + ":00"
+    //     });
+    //     labelData.push({
+    //       value: 1,
+    //       name: i + ":00"
+    //     });
+    //   }
 
-      option = {
-        title: {
-          text: "24小时用电量分析",
-          left: "50%",
-          textAlign: "center",
-          top: "20%"
-        },
-        tooltip: {
-          trigger: "item",
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        color: [
-          "#27D38A",
-          "#FFCA1C",
-          "#5DD1FA",
-          "#F88E25",
-          "#47A0FF",
-          "#FD6565"
-        ],
-        series: [
-          {
-            type: "pie",
-            data: data,
-            roseType: "area",
-            itemStyle: {
-              normal: {
-                color: "white",
-                borderColor: "#22C3AA"
-              }
-            },
-            labelLine: {
-              normal: {
-                show: false
-              }
-            },
-            label: {
-              normal: {
-                show: false
-              }
-            }
-          },
-          {
-            type: "pie",
-            data: labelData,
-            radius: ["75%", "100%"],
-            zlevel: -2,
-            itemStyle: {
-              normal: {
-                color: "#22C3AA",
-                borderColor: "white"
-              }
-            },
-            label: {
-              normal: {
-                position: "inside"
-              }
-            }
-          }
-        ]
-      };
+    //   option = {
+    //     title: {
+    //       text: "24小时用电量分析",
+    //       left: "50%",
+    //       textAlign: "center",
+    //       top: "20%"
+    //     },
+    //     tooltip: {
+    //       trigger: "item",
+    //       formatter: "{a} <br/>{b} : {c} ({d}%)"
+    //     },
+    //     color: [
+    //       "#27D38A",
+    //       "#FFCA1C",
+    //       "#5DD1FA",
+    //       "#F88E25",
+    //       "#47A0FF",
+    //       "#FD6565"
+    //     ],
+    //     series: [
+    //       {
+    //         type: "pie",
+    //         data: data,
+    //         roseType: "area",
+    //         itemStyle: {
+    //           normal: {
+    //             color: "white",
+    //             borderColor: "#22C3AA"
+    //           }
+    //         },
+    //         labelLine: {
+    //           normal: {
+    //             show: false
+    //           }
+    //         },
+    //         label: {
+    //           normal: {
+    //             show: false
+    //           }
+    //         }
+    //       },
+    //       {
+    //         type: "pie",
+    //         data: labelData,
+    //         radius: ["75%", "100%"],
+    //         zlevel: -2,
+    //         itemStyle: {
+    //           normal: {
+    //             color: "#22C3AA",
+    //             borderColor: "white"
+    //           }
+    //         },
+    //         label: {
+    //           normal: {
+    //             position: "inside"
+    //           }
+    //         }
+    //       }
+    //     ]
+    //   };
 
-      echart4.setOption(option);
-    },
+    //   echart4.setOption(option);
+    // },
 
     drawChartMap1() {
       let map_1 = this.$echarts.init(document.getElementById("map_1"));
@@ -573,16 +548,16 @@ export default {
 
       var xData = (function() {
         var data = [
-          "新福利",
-          "溢通公司",
-          "南沙巴士",
-          "从化分公司",
-          "花都恒通",
-          "二巴一分",
-          "二巴二分",
-          "番禺片区",
-          "佛广集团",
-          "客运旅包"
+          "00：00：00",
+          "01：00：00",
+          "02：00：00",
+          "03：00：00",
+          "04：00：00",
+          "05：00：00",
+          "06：00：00",
+          "07：00：00",
+          "08：00：00",
+          "09：00：00"
         ];
         return data;
       })();
@@ -590,7 +565,7 @@ export default {
       option = {
         backgroundColor: "",
         legend: {
-          data: ["岗前培训", "安全例会", "技术培训", "教育约谈", "其它"],
+          data: ["汽车行业分时电价", "机械行业分时电价", "航空行业分时电价", "峰平谷分时电价", "行业分时电价平均值"],
           left: "15%",
           top: 20,
           itemWidth: 60,
@@ -685,7 +660,7 @@ export default {
         ],
         series: [
           {
-            name: "岗前培训",
+            name: "汽车行业分时电价",
             type: "bar",
             stack: "1",
             barMaxWidth: 35,
@@ -736,7 +711,7 @@ export default {
           },
 
           {
-            name: "安全例会",
+            name: "机械行业分时电价",
             type: "bar",
             stack: "2",
             itemStyle: {
@@ -784,7 +759,7 @@ export default {
             data: [9, 7, 3, 2, 6, 9, 7, 3, 2, 6]
           },
           {
-            name: "技术培训",
+            name: "航空行业分时电价",
             type: "bar",
             stack: "3",
             barMaxWidth: 35,
@@ -834,7 +809,7 @@ export default {
             data: [13, 19, 6, 12, 15, 13, 19, 6, 12, 15]
           },
           {
-            name: "教育约谈",
+            name: "峰平谷分时电价",
             type: "bar",
             stack: "4",
             barMaxWidth: 35,
@@ -884,7 +859,7 @@ export default {
             data: [13, 19, 6, 12, 15, 13, 19, 6, 12, 15]
           },
           {
-            name: "其它",
+            name: "行业分时电价平均值",
             type: "line",
             yAxisIndex: 1,
             symbolSize: 10,

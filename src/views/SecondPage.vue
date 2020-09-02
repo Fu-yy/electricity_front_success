@@ -50,9 +50,16 @@
               <vue-seamless-scroll :data="listData" class="seamless-warp">
                 <ul class="item">
                   <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
-                    <span class="title" v-text="item.date" style="width:50px"></span>
-                    <span class="date" v-text="item.name" style="width:50px"></span>
-                    <span class="date" v-text="item.num" style="width:50px"></span>
+                    <div style="display:inline;">
+                      <span class="title" v-text="item.date" style="width:50px"></span>
+                    </div>
+
+                    <div style="display:inline;margin-left:1rem">
+                      <span class="date" v-text="item.name" style="width:50px"></span>
+                    </div>
+                    <div style="display:inline;margin-left:2rem">
+                      <span class="date" v-text="item.num" style="width:50px"></span>
+                    </div>
                   </li>
                 </ul>
               </vue-seamless-scroll>
@@ -108,89 +115,55 @@ export default {
       fontSize: document.documentElement.clientWidth,
       listData: [
         {
-          title: "无缝滚动第一行无缝滚动第一行",
-          date: "2017-12-16"
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
         },
         {
-          title: "无缝滚动第二行无缝滚动第二行",
-          date: "2017-12-16"
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
+        },{
+          date: "2017-12-16",
+          name: "2017-12-16",
+          num: "2017-12-16"
         },
-        {
-          title: "无缝滚动第三行无缝滚动第三行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第四行无缝滚动第四行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第五行无缝滚动第五行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第六行无缝滚动第六行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第七行无缝滚动第七行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第八行无缝滚动第八行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        },
-        {
-          title: "无缝滚动第九行无缝滚动第九行",
-          date: "2017-12-16"
-        }
       ]
     };
   },
@@ -1594,7 +1567,7 @@ export default {
             }
           },
           {
-            text: "用户来源占比",
+            text: "三大行业用电量总和对比",
             left: "83%",
             top: "6%",
             textAlign: "center",
@@ -1613,17 +1586,22 @@ export default {
             textStyle: {
               color: "#ffd285"
             },
-            data: ["汽车制造业", "航空制造业", "机械制造业"]
+            data: [
+              "汽车制造业各行业和",
+              "航空制造业各行业和",
+              "机械制造业各行业和"
+            ]
           },
           {
             textStyle: {
               color: "#ffd285"
             },
-            left: "80%",
-            right: "1%",
+            width: "50%",
+            left: "70%",
+            right: "0%",
             top: "16%",
-            bottom: "6%",
-            data: ["A", "B", "C"]
+            bottom: "7%",
+            data: ["汽车制造业", "航空制造业", "机械制造业"]
           }
         ],
         grid: [
@@ -1635,8 +1613,8 @@ export default {
             containLabel: true
           },
           {
-            left: "80%",
-            right: "1%",
+            left: "83%",
+            right: "0%",
             top: "16%",
             bottom: "6%"
           }
@@ -1663,27 +1641,22 @@ export default {
             }
           },
           boundaryGap: false,
-          data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+          data: null
         },
         angleAxis: {
-          
           type: "category",
-          data: [{
-            textStyle:{
-              color:"#fff"
+          data: null,
+          axisLine: {
+            lineStyle: {
+              color: "#fff"
             }
-          },"周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-          axisLine:{
-            lineStyle:{
-                color:"#fff"
-            }
-        },
-          
+          },
+
           z: 10
         },
-         polar: {
-          center: ['85%', '55%'],
-            radius: 140,
+        polar: {
+          center: ["85%", "55%"],
+          radius: 140
         },
         yAxis: {
           axisLine: {
@@ -1707,124 +1680,174 @@ export default {
           },
           type: "value"
         },
-        
+
         radiusAxis: {
-           axisLine:{
-            lineStyle:{
-                color:"#fff"
+          axisLine: {
+            lineStyle: {
+              color: "#fff"
             }
+          }
         },
-        },
-       
+
         series: [
           {
-            name: "航空制造业",
+            name: "航空制造业各行业和",
             smooth: true,
             type: "line",
             symbolSize: 8,
             symbol: "circle",
-            data: [90, 50, 39, 50, 120, 82, 80]
+            data: null
           },
           {
-            name: "汽车制造业",
+            name: "汽车制造业各行业和",
             smooth: true,
             type: "line",
             symbolSize: 8,
             symbol: "circle",
-            data: [70, 50, 50, 87, 90, 80, 70]
+            data: null
           },
           {
-            name: "机械制造业",
+            name: "机械制造业各行业和",
             smooth: true,
             type: "line",
             symbolSize: 8,
             symbol: "circle",
-            data: [290, 200, 20, 132, 15, 200, 90]
+            data: null
           },
 
           {
             type: "bar",
-            data: [1, 2, 3, 4, 3, 5, 1],
+            data: null,
             label: {
               normal: {
                 position: "center"
               }
             },
             coordinateSystem: "polar",
-            name: "A",
+            name: "汽车制造业",
             stack: "a"
           },
           {
             type: "bar",
-            data: [2, 4, 6, 1, 3, 2, 1],
+            data: null,
             coordinateSystem: "polar",
             label: {
               normal: {
                 position: "center"
               }
             },
-            name: "B",
+            name: "航空制造业",
             stack: "a"
           },
           {
             type: "bar",
-            data: [1, 2, 3, 4, 1, 2, 5],
+            data: null,
             coordinateSystem: "polar",
             label: {
               normal: {
                 position: "center"
               }
             },
-            name: "C",
+            name: "机械制造业",
             stack: "a"
           }
-
-         
         ]
       };
       map_1.setOption(option);
 
-    t.$axios
+      t.$axios
         .get("/findAllElectricityRelated")
         .then(result => {
           console.log(result);
           console.log("dasdasd");
-          let dataTime = result.data.data.electricityRelatedServiceAllDate;//日期
-          let dataResult = result.data.data.electricityRelatedServiceAllRelated;//数值
+          let dataTime = result.data.data.electricityRelatedServiceAllDate; //日期
+          let mechanicalSum = result.data.data.mechanicalSum; //机械行业和
+          let carSum = result.data.data.carSum; //汽车行业和
+          let aviationSum = result.data.data.aviationSum; //航空行业和
 
-          let listData1 = [];
-          let listData2 = [];
-          let listData3 = [];
-          let listData4 = [];
-          let listData5 = [];
-          let listData6 = [];
+          console.log("mechanicalSum");
+          console.log(mechanicalSum);
+          console.log("mechanicalSum");
 
-          dataTime.forEach(time => {
-            var numSum = 0;
-            dataResult.forEach(element => {
-              // console.log(element);
-              if (time == element.electDateStr && element.manufacts.owner == "航空制造业") {
-
-               
-                  console.log(time);
-
-                  // numSum += element.manufacts.manuName; 
-                  console.log("aaaaaaaaaaaaaaaaaaaaaaaaa");
-                  console.log(element);
-                
+          let angleAxisDataTime = [
+            {
+              textStyle: {
+                color: "#fff"
               }
-            });
+            }
+          ];
+
+          for (var item of dataTime) {
+            angleAxisDataTime.push(item);
+          }
+          map_1.setOption({
+            xAxis: {
+              data: dataTime
+            },
+            angleAxis: {
+              type: "category",
+              data: dataTime,
+              axisLine: {
+                lineStyle: {
+                  color: "#fff"
+                }
+              },
+
+              z: 10
+            },
+            series: [
+              {
+                name: "航空制造业各行业和",
+                data: aviationSum
+              },
+              {
+                name: "汽车制造业各行业和",
+                data: carSum
+              },
+              {
+                name: "机械制造业各行业和",
+                data: mechanicalSum
+              },
+              {
+                type: "bar",
+                data: carSum,
+                label: {
+                  normal: {
+                    position: "center"
+                  }
+                },
+                coordinateSystem: "polar",
+                name: "汽车制造业",
+                stack: "a"
+              },
+              {
+                type: "bar",
+                data: aviationSum,
+                coordinateSystem: "polar",
+                label: {
+                  normal: {
+                    position: "center"
+                  }
+                },
+                name: "航空制造业",
+                stack: "a"
+              },
+              {
+                type: "bar",
+                data: mechanicalSum,
+                coordinateSystem: "polar",
+                label: {
+                  normal: {
+                    position: "center"
+                  }
+                },
+                name: "机械制造业",
+                stack: "a"
+              }
+            ]
           });
-
-          console.log(listData1);
-          console.log(dataTime);
-          console.log("dataTime");
-
-       
         })
         .catch(err => {});
-
-
     }
   }
 };
