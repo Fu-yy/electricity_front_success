@@ -19,7 +19,7 @@ import scroll from 'vue-seamless-scroll'
 
 
 // 设置反向代理，前端请求默认发送到 http://202.118.26.114:8081
-axios.defaults.baseURL = 'http://202.118.26.114:8081'
+axios.defaults.baseURL = 'http://192.168.28.128:32768'
 Vue.prototype.$axios = axios;
 
 Vue.use(ElementUI);

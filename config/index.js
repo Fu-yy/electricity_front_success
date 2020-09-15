@@ -12,42 +12,42 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/findElectricityPastList': {
-                target: 'http://202.118.26.114:8081',
+                target: 'http://192.168.28.128:32768',
                 changeOrigin: true,
                 pathRewrite: {
                   '^/findElectricityPastListt': ''
                 }
             },
       '/findAllElectricityRelated': {
-                target: 'http://202.118.26.114:8081',
+                target: 'http://192.168.28.128:32768',
                 changeOrigin: true,
                 pathRewrite: {
                   '^/findAllElectricityRelated': ''
                 }
             },
       '/findElectricityForecastList': {
-                target: 'http://202.118.26.114:8081',
+                target: 'http://192.168.28.128:32768',
                 changeOrigin: true,
                 pathRewrite: {
                   '^/findElectricityForecastList': ''
                 }
             },
       '/findAllElectricityTimeSharing': {
-                target: 'http://202.118.26.114:8081',
+                target: 'http://192.168.28.128:32768',
                 changeOrigin: true,
                 pathRewrite: {
                   '^/findAllElectricityTimeSharing': ''
                 }
             },
       '/findAllElectrElectricityTso': {
-                target: 'http://202.118.26.114:8081',
+                target: 'http://192.168.28.128:32768',
                 changeOrigin: true,
                 pathRewrite: {
                   '^/findAllElectrElectricityTso': ''
                 }
             },
       '/findAlElectricityDo': {
-                target: 'http://202.118.26.114:8081',
+                target: 'http://192.168.28.128:32768',
                 changeOrigin: true,
                 pathRewrite: {
                   '^/findAlElectricityDo': ''
