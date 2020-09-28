@@ -47,8 +47,10 @@
                 </div>
               </div>
 
+
               <vue-seamless-scroll :data="listData" class="seamless-warp">
-                <ul class="item">
+
+                <!-- <ul class="item">
                   <li v-for="(item,index) in listData" :key="index" style="color:#ffffff">
                     <div style="display:inline;">
                       <span class="title" v-text="item.date" style="width:50px"></span>
@@ -61,7 +63,14 @@
                       <span class="date" v-text="item.num" style="width:50px"></span>
                     </div>
                   </li>
-                </ul>
+                </ul> -->
+
+
+                <el-row :gutter="20" type="flex" v-for="(item,index) in listData" :key="index" justify="center">
+                  <el-col :span="8" style="text-align:center"><span class="grid-content bg-purple" style="color:#fff"  v-text="item.date"></span></el-col>
+                  <el-col :span="8" style="text-align:center"><span class="grid-content bg-purple " style="color:#fff" v-text="item.name"></span></el-col>
+                  <el-col :span="8" style="text-align:center"><span class="grid-content bg-purple " style="color:#fff" v-text="item.num"></span></el-col>
+                </el-row>
               </vue-seamless-scroll>
             </div>
             <div class="boxfoot"></div>
@@ -100,6 +109,14 @@
         </div>-->
       </li>
     </ul>
+
+
+
+
+
+
+
+    
   </div>
 </template>
 
@@ -116,24 +133,24 @@ export default {
       listData: [
         {
           date: "2017-12-16",
-          name: "2017-12-16",
-          num: "2017-12-16"
+          name: "2017-1dddddddddd2-16",
+          num: "201dddd7-12-16"
         },
         {
           date: "2017-12-16",
-          name: "2017-12-16",
+          name: "2017-1ddddddddd2-16",
           num: "2017-12-16"
         },{
           date: "2017-12-16",
           name: "2017-12-16",
           num: "2017-12-16"
         },{
-          date: "2017-12-16",
-          name: "2017-12-16",
-          num: "2017-12-16"
+          date: "2017-d12-16",
+          name: "2017-1dd2-16",
+          num: "201ddd7-12-16"
         },{
           date: "2017-12-16",
-          name: "2017-12-16",
+          name: "2017d-12-16",
           num: "2017-12-16"
         },{
           date: "2017-12-16",
